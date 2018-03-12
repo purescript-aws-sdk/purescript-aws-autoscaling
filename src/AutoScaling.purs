@@ -20,57 +20,75 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "AutoScaling" :: String
-
 
 -- | <p>Deletes the specified Application Auto Scaling scaling policy.</p> <p>Deleting a policy deletes the underlying alarm action, but does not delete the CloudWatch alarm associated with the scaling policy, even if it no longer has an associated action.</p> <p>To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.</p>
 deleteScalingPolicy :: forall eff. DeleteScalingPolicyRequest -> Aff (exception :: EXCEPTION | eff) DeleteScalingPolicyResponse
-deleteScalingPolicy = Request.request serviceName "deleteScalingPolicy" 
+deleteScalingPolicy = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "deleteScalingPolicy"
 
 
 -- | <p>Deletes the specified Application Auto Scaling scheduled action.</p>
 deleteScheduledAction :: forall eff. DeleteScheduledActionRequest -> Aff (exception :: EXCEPTION | eff) DeleteScheduledActionResponse
-deleteScheduledAction = Request.request serviceName "deleteScheduledAction" 
+deleteScheduledAction = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "deleteScheduledAction"
 
 
 -- | <p>Deregisters a scalable target.</p> <p>Deregistering a scalable target deletes the scaling policies that are associated with it.</p> <p>To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>.</p>
 deregisterScalableTarget :: forall eff. DeregisterScalableTargetRequest -> Aff (exception :: EXCEPTION | eff) DeregisterScalableTargetResponse
-deregisterScalableTarget = Request.request serviceName "deregisterScalableTarget" 
+deregisterScalableTarget = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "deregisterScalableTarget"
 
 
 -- | <p>Gets information about the scalable targets in the specified namespace.</p> <p>You can filter the results using the <code>ResourceIds</code> and <code>ScalableDimension</code> parameters.</p> <p>To create a scalable target or update an existing one, see <a>RegisterScalableTarget</a>. If you are no longer using a scalable target, you can deregister it using <a>DeregisterScalableTarget</a>.</p>
 describeScalableTargets :: forall eff. DescribeScalableTargetsRequest -> Aff (exception :: EXCEPTION | eff) DescribeScalableTargetsResponse
-describeScalableTargets = Request.request serviceName "describeScalableTargets" 
+describeScalableTargets = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "describeScalableTargets"
 
 
 -- | <p>Provides descriptive information about the scaling activities in the specified namespace from the previous six weeks.</p> <p>You can filter the results using the <code>ResourceId</code> and <code>ScalableDimension</code> parameters.</p> <p>Scaling activities are triggered by CloudWatch alarms that are associated with scaling policies. To view the scaling policies for a service namespace, see <a>DescribeScalingPolicies</a>. To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.</p>
 describeScalingActivities :: forall eff. DescribeScalingActivitiesRequest -> Aff (exception :: EXCEPTION | eff) DescribeScalingActivitiesResponse
-describeScalingActivities = Request.request serviceName "describeScalingActivities" 
+describeScalingActivities = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "describeScalingActivities"
 
 
 -- | <p>Describes the scaling policies for the specified service namespace.</p> <p>You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>PolicyNames</code> parameters.</p> <p>To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>. If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.</p>
 describeScalingPolicies :: forall eff. DescribeScalingPoliciesRequest -> Aff (exception :: EXCEPTION | eff) DescribeScalingPoliciesResponse
-describeScalingPolicies = Request.request serviceName "describeScalingPolicies" 
+describeScalingPolicies = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "describeScalingPolicies"
 
 
 -- | <p>Describes the scheduled actions for the specified service namespace.</p> <p>You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>, and <code>ScheduledActionNames</code> parameters.</p> <p>To create a scheduled action or update an existing one, see <a>PutScheduledAction</a>. If you are no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.</p>
 describeScheduledActions :: forall eff. DescribeScheduledActionsRequest -> Aff (exception :: EXCEPTION | eff) DescribeScheduledActionsResponse
-describeScheduledActions = Request.request serviceName "describeScheduledActions" 
+describeScheduledActions = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "describeScheduledActions"
 
 
 -- | <p>Creates or updates a policy for an Application Auto Scaling scalable target.</p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scaling policy applies to the scalable target identified by those three attributes. You cannot create a scaling policy until you register the scalable target using <a>RegisterScalableTarget</a>.</p> <p>To update a policy, specify its policy name and the parameters that you want to change. Any parameters that you don't specify are not changed by this update request.</p> <p>You can view the scaling policies for a service namespace using <a>DescribeScalingPolicies</a>. If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.</p>
 putScalingPolicy :: forall eff. PutScalingPolicyRequest -> Aff (exception :: EXCEPTION | eff) PutScalingPolicyResponse
-putScalingPolicy = Request.request serviceName "putScalingPolicy" 
+putScalingPolicy = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "putScalingPolicy"
 
 
 -- | <p>Creates or updates a scheduled action for an Application Auto Scaling scalable target.</p> <p>Each scalable target is identified by a service namespace, resource ID, and scalable dimension. A scheduled action applies to the scalable target identified by those three attributes. You cannot create a scheduled action until you register the scalable target using <a>RegisterScalableTarget</a>.</p> <p>To update an action, specify its name and the parameters that you want to change. If you don't specify start and end times, the old values are deleted. Any other parameters that you don't specify are not changed by this update request.</p> <p>You can view the scheduled actions using <a>DescribeScheduledActions</a>. If you are no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.</p>
 putScheduledAction :: forall eff. PutScheduledActionRequest -> Aff (exception :: EXCEPTION | eff) PutScheduledActionResponse
-putScheduledAction = Request.request serviceName "putScheduledAction" 
+putScheduledAction = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "putScheduledAction"
 
 
 -- | <p>Registers or updates a scalable target. A scalable target is a resource that Application Auto Scaling can scale out or scale in. After you have registered a scalable target, you can use this operation to update the minimum and maximum values for its scalable dimension.</p> <p>After you register a scalable target, you can create and apply scaling policies using <a>PutScalingPolicy</a>. You can view the scaling policies for a service namespace using <a>DescribeScalableTargets</a>. If you no longer need a scalable target, you can deregister it using <a>DeregisterScalableTarget</a>.</p>
 registerScalableTarget :: forall eff. RegisterScalableTargetRequest -> Aff (exception :: EXCEPTION | eff) RegisterScalableTargetResponse
-registerScalableTarget = Request.request serviceName "registerScalableTarget" 
+registerScalableTarget = Request.request service method  where
+    service = Request.ServiceName "AutoScaling"
+    method = Request.MethodName "registerScalableTarget"
 
 
 newtype AdjustmentType = AdjustmentType String
