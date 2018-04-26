@@ -76,7 +76,7 @@ Encode Alarms
 
 ``` purescript
 newtype ConcurrentUpdateException
-  = ConcurrentUpdateException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ConcurrentUpdateException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.</p>
@@ -101,7 +101,7 @@ Constructs ConcurrentUpdateException from required parameters
 #### `newConcurrentUpdateException'`
 
 ``` purescript
-newConcurrentUpdateException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ConcurrentUpdateException
+newConcurrentUpdateException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ConcurrentUpdateException
 ```
 
 Constructs ConcurrentUpdateException's fields from required parameters
@@ -126,7 +126,7 @@ Encode Cooldown
 
 ``` purescript
 newtype CustomizedMetricSpecification
-  = CustomizedMetricSpecification { "MetricName" :: MetricName, "Namespace" :: MetricNamespace, "Dimensions" :: NullOrUndefined (MetricDimensions), "Statistic" :: MetricStatistic, "Unit" :: NullOrUndefined (MetricUnit) }
+  = CustomizedMetricSpecification { "MetricName" :: MetricName, "Namespace" :: MetricNamespace, "Dimensions" :: Maybe (MetricDimensions), "Statistic" :: MetricStatistic, "Unit" :: Maybe (MetricUnit) }
 ```
 
 <p>Configures a customized metric for a target tracking policy.</p>
@@ -151,7 +151,7 @@ Constructs CustomizedMetricSpecification from required parameters
 #### `newCustomizedMetricSpecification'`
 
 ``` purescript
-newCustomizedMetricSpecification' :: MetricName -> MetricNamespace -> MetricStatistic -> ({ "MetricName" :: MetricName, "Namespace" :: MetricNamespace, "Dimensions" :: NullOrUndefined (MetricDimensions), "Statistic" :: MetricStatistic, "Unit" :: NullOrUndefined (MetricUnit) } -> { "MetricName" :: MetricName, "Namespace" :: MetricNamespace, "Dimensions" :: NullOrUndefined (MetricDimensions), "Statistic" :: MetricStatistic, "Unit" :: NullOrUndefined (MetricUnit) }) -> CustomizedMetricSpecification
+newCustomizedMetricSpecification' :: MetricName -> MetricNamespace -> MetricStatistic -> ({ "MetricName" :: MetricName, "Namespace" :: MetricNamespace, "Dimensions" :: Maybe (MetricDimensions), "Statistic" :: MetricStatistic, "Unit" :: Maybe (MetricUnit) } -> { "MetricName" :: MetricName, "Namespace" :: MetricNamespace, "Dimensions" :: Maybe (MetricDimensions), "Statistic" :: MetricStatistic, "Unit" :: Maybe (MetricUnit) }) -> CustomizedMetricSpecification
 ```
 
 Constructs CustomizedMetricSpecification's fields from required parameters
@@ -208,7 +208,7 @@ Encode DeleteScalingPolicyResponse
 
 ``` purescript
 newtype DeleteScheduledActionRequest
-  = DeleteScheduledActionRequest { "ServiceNamespace" :: ServiceNamespace, "ScheduledActionName" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension) }
+  = DeleteScheduledActionRequest { "ServiceNamespace" :: ServiceNamespace, "ScheduledActionName" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension) }
 ```
 
 ##### Instances
@@ -231,7 +231,7 @@ Constructs DeleteScheduledActionRequest from required parameters
 #### `newDeleteScheduledActionRequest'`
 
 ``` purescript
-newDeleteScheduledActionRequest' :: ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ScheduledActionName" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension) } -> { "ServiceNamespace" :: ServiceNamespace, "ScheduledActionName" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension) }) -> DeleteScheduledActionRequest
+newDeleteScheduledActionRequest' :: ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ScheduledActionName" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension) } -> { "ServiceNamespace" :: ServiceNamespace, "ScheduledActionName" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension) }) -> DeleteScheduledActionRequest
 ```
 
 Constructs DeleteScheduledActionRequest's fields from required parameters
@@ -304,7 +304,7 @@ Encode DeregisterScalableTargetResponse
 
 ``` purescript
 newtype DescribeScalableTargetsRequest
-  = DescribeScalableTargetsRequest { "ServiceNamespace" :: ServiceNamespace, "ResourceIds" :: NullOrUndefined (ResourceIdsMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScalableTargetsRequest { "ServiceNamespace" :: ServiceNamespace, "ResourceIds" :: Maybe (ResourceIdsMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -327,7 +327,7 @@ Constructs DescribeScalableTargetsRequest from required parameters
 #### `newDescribeScalableTargetsRequest'`
 
 ``` purescript
-newDescribeScalableTargetsRequest' :: ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ResourceIds" :: NullOrUndefined (ResourceIdsMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) } -> { "ServiceNamespace" :: ServiceNamespace, "ResourceIds" :: NullOrUndefined (ResourceIdsMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScalableTargetsRequest
+newDescribeScalableTargetsRequest' :: ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ResourceIds" :: Maybe (ResourceIdsMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) } -> { "ServiceNamespace" :: ServiceNamespace, "ResourceIds" :: Maybe (ResourceIdsMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }) -> DescribeScalableTargetsRequest
 ```
 
 Constructs DescribeScalableTargetsRequest's fields from required parameters
@@ -336,7 +336,7 @@ Constructs DescribeScalableTargetsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeScalableTargetsResponse
-  = DescribeScalableTargetsResponse { "ScalableTargets" :: NullOrUndefined (ScalableTargets), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScalableTargetsResponse { "ScalableTargets" :: Maybe (ScalableTargets), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -359,7 +359,7 @@ Constructs DescribeScalableTargetsResponse from required parameters
 #### `newDescribeScalableTargetsResponse'`
 
 ``` purescript
-newDescribeScalableTargetsResponse' :: ({ "ScalableTargets" :: NullOrUndefined (ScalableTargets), "NextToken" :: NullOrUndefined (XmlString) } -> { "ScalableTargets" :: NullOrUndefined (ScalableTargets), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScalableTargetsResponse
+newDescribeScalableTargetsResponse' :: ({ "ScalableTargets" :: Maybe (ScalableTargets), "NextToken" :: Maybe (XmlString) } -> { "ScalableTargets" :: Maybe (ScalableTargets), "NextToken" :: Maybe (XmlString) }) -> DescribeScalableTargetsResponse
 ```
 
 Constructs DescribeScalableTargetsResponse's fields from required parameters
@@ -368,7 +368,7 @@ Constructs DescribeScalableTargetsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeScalingActivitiesRequest
-  = DescribeScalingActivitiesRequest { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScalingActivitiesRequest { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -391,7 +391,7 @@ Constructs DescribeScalingActivitiesRequest from required parameters
 #### `newDescribeScalingActivitiesRequest'`
 
 ``` purescript
-newDescribeScalingActivitiesRequest' :: ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) } -> { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScalingActivitiesRequest
+newDescribeScalingActivitiesRequest' :: ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) } -> { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }) -> DescribeScalingActivitiesRequest
 ```
 
 Constructs DescribeScalingActivitiesRequest's fields from required parameters
@@ -400,7 +400,7 @@ Constructs DescribeScalingActivitiesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeScalingActivitiesResponse
-  = DescribeScalingActivitiesResponse { "ScalingActivities" :: NullOrUndefined (ScalingActivities), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScalingActivitiesResponse { "ScalingActivities" :: Maybe (ScalingActivities), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -423,7 +423,7 @@ Constructs DescribeScalingActivitiesResponse from required parameters
 #### `newDescribeScalingActivitiesResponse'`
 
 ``` purescript
-newDescribeScalingActivitiesResponse' :: ({ "ScalingActivities" :: NullOrUndefined (ScalingActivities), "NextToken" :: NullOrUndefined (XmlString) } -> { "ScalingActivities" :: NullOrUndefined (ScalingActivities), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScalingActivitiesResponse
+newDescribeScalingActivitiesResponse' :: ({ "ScalingActivities" :: Maybe (ScalingActivities), "NextToken" :: Maybe (XmlString) } -> { "ScalingActivities" :: Maybe (ScalingActivities), "NextToken" :: Maybe (XmlString) }) -> DescribeScalingActivitiesResponse
 ```
 
 Constructs DescribeScalingActivitiesResponse's fields from required parameters
@@ -432,7 +432,7 @@ Constructs DescribeScalingActivitiesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeScalingPoliciesRequest
-  = DescribeScalingPoliciesRequest { "PolicyNames" :: NullOrUndefined (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScalingPoliciesRequest { "PolicyNames" :: Maybe (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -455,7 +455,7 @@ Constructs DescribeScalingPoliciesRequest from required parameters
 #### `newDescribeScalingPoliciesRequest'`
 
 ``` purescript
-newDescribeScalingPoliciesRequest' :: ServiceNamespace -> ({ "PolicyNames" :: NullOrUndefined (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) } -> { "PolicyNames" :: NullOrUndefined (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScalingPoliciesRequest
+newDescribeScalingPoliciesRequest' :: ServiceNamespace -> ({ "PolicyNames" :: Maybe (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) } -> { "PolicyNames" :: Maybe (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }) -> DescribeScalingPoliciesRequest
 ```
 
 Constructs DescribeScalingPoliciesRequest's fields from required parameters
@@ -464,7 +464,7 @@ Constructs DescribeScalingPoliciesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeScalingPoliciesResponse
-  = DescribeScalingPoliciesResponse { "ScalingPolicies" :: NullOrUndefined (ScalingPolicies), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScalingPoliciesResponse { "ScalingPolicies" :: Maybe (ScalingPolicies), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -487,7 +487,7 @@ Constructs DescribeScalingPoliciesResponse from required parameters
 #### `newDescribeScalingPoliciesResponse'`
 
 ``` purescript
-newDescribeScalingPoliciesResponse' :: ({ "ScalingPolicies" :: NullOrUndefined (ScalingPolicies), "NextToken" :: NullOrUndefined (XmlString) } -> { "ScalingPolicies" :: NullOrUndefined (ScalingPolicies), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScalingPoliciesResponse
+newDescribeScalingPoliciesResponse' :: ({ "ScalingPolicies" :: Maybe (ScalingPolicies), "NextToken" :: Maybe (XmlString) } -> { "ScalingPolicies" :: Maybe (ScalingPolicies), "NextToken" :: Maybe (XmlString) }) -> DescribeScalingPoliciesResponse
 ```
 
 Constructs DescribeScalingPoliciesResponse's fields from required parameters
@@ -496,7 +496,7 @@ Constructs DescribeScalingPoliciesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeScheduledActionsRequest
-  = DescribeScheduledActionsRequest { "ScheduledActionNames" :: NullOrUndefined (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScheduledActionsRequest { "ScheduledActionNames" :: Maybe (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -519,7 +519,7 @@ Constructs DescribeScheduledActionsRequest from required parameters
 #### `newDescribeScheduledActionsRequest'`
 
 ``` purescript
-newDescribeScheduledActionsRequest' :: ServiceNamespace -> ({ "ScheduledActionNames" :: NullOrUndefined (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) } -> { "ScheduledActionNames" :: NullOrUndefined (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600), "ScalableDimension" :: NullOrUndefined (ScalableDimension), "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScheduledActionsRequest
+newDescribeScheduledActionsRequest' :: ServiceNamespace -> ({ "ScheduledActionNames" :: Maybe (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) } -> { "ScheduledActionNames" :: Maybe (ResourceIdsMaxLen1600), "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: Maybe (ResourceIdMaxLen1600), "ScalableDimension" :: Maybe (ScalableDimension), "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (XmlString) }) -> DescribeScheduledActionsRequest
 ```
 
 Constructs DescribeScheduledActionsRequest's fields from required parameters
@@ -528,7 +528,7 @@ Constructs DescribeScheduledActionsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeScheduledActionsResponse
-  = DescribeScheduledActionsResponse { "ScheduledActions" :: NullOrUndefined (ScheduledActions), "NextToken" :: NullOrUndefined (XmlString) }
+  = DescribeScheduledActionsResponse { "ScheduledActions" :: Maybe (ScheduledActions), "NextToken" :: Maybe (XmlString) }
 ```
 
 ##### Instances
@@ -551,7 +551,7 @@ Constructs DescribeScheduledActionsResponse from required parameters
 #### `newDescribeScheduledActionsResponse'`
 
 ``` purescript
-newDescribeScheduledActionsResponse' :: ({ "ScheduledActions" :: NullOrUndefined (ScheduledActions), "NextToken" :: NullOrUndefined (XmlString) } -> { "ScheduledActions" :: NullOrUndefined (ScheduledActions), "NextToken" :: NullOrUndefined (XmlString) }) -> DescribeScheduledActionsResponse
+newDescribeScheduledActionsResponse' :: ({ "ScheduledActions" :: Maybe (ScheduledActions), "NextToken" :: Maybe (XmlString) } -> { "ScheduledActions" :: Maybe (ScheduledActions), "NextToken" :: Maybe (XmlString) }) -> DescribeScheduledActionsResponse
 ```
 
 Constructs DescribeScheduledActionsResponse's fields from required parameters
@@ -592,7 +592,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype FailedResourceAccessException
-  = FailedResourceAccessException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = FailedResourceAccessException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have permission to call the CloudWatch <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
@@ -617,7 +617,7 @@ Constructs FailedResourceAccessException from required parameters
 #### `newFailedResourceAccessException'`
 
 ``` purescript
-newFailedResourceAccessException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> FailedResourceAccessException
+newFailedResourceAccessException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> FailedResourceAccessException
 ```
 
 Constructs FailedResourceAccessException's fields from required parameters
@@ -626,7 +626,7 @@ Constructs FailedResourceAccessException's fields from required parameters
 
 ``` purescript
 newtype InternalServiceException
-  = InternalServiceException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServiceException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The service encountered an internal error.</p>
@@ -651,7 +651,7 @@ Constructs InternalServiceException from required parameters
 #### `newInternalServiceException'`
 
 ``` purescript
-newInternalServiceException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServiceException
+newInternalServiceException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InternalServiceException
 ```
 
 Constructs InternalServiceException's fields from required parameters
@@ -660,7 +660,7 @@ Constructs InternalServiceException's fields from required parameters
 
 ``` purescript
 newtype InvalidNextTokenException
-  = InvalidNextTokenException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InvalidNextTokenException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The next token supplied was invalid.</p>
@@ -685,7 +685,7 @@ Constructs InvalidNextTokenException from required parameters
 #### `newInvalidNextTokenException'`
 
 ``` purescript
-newInvalidNextTokenException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InvalidNextTokenException
+newInvalidNextTokenException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InvalidNextTokenException
 ```
 
 Constructs InvalidNextTokenException's fields from required parameters
@@ -694,7 +694,7 @@ Constructs InvalidNextTokenException's fields from required parameters
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = LimitExceededException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>A per-account resource limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
@@ -719,7 +719,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> LimitExceededException
+newLimitExceededException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -954,7 +954,7 @@ Encode MinAdjustmentMagnitude
 
 ``` purescript
 newtype ObjectNotFoundException
-  = ObjectNotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ObjectNotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The specified object could not be found. For any operation that depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any operation that deletes or deregisters a resource, this exception is thrown if the resource cannot be found.</p>
@@ -979,7 +979,7 @@ Constructs ObjectNotFoundException from required parameters
 #### `newObjectNotFoundException'`
 
 ``` purescript
-newObjectNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ObjectNotFoundException
+newObjectNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ObjectNotFoundException
 ```
 
 Constructs ObjectNotFoundException's fields from required parameters
@@ -1020,7 +1020,7 @@ Encode PolicyType
 
 ``` purescript
 newtype PredefinedMetricSpecification
-  = PredefinedMetricSpecification { "PredefinedMetricType" :: MetricType, "ResourceLabel" :: NullOrUndefined (ResourceLabel) }
+  = PredefinedMetricSpecification { "PredefinedMetricType" :: MetricType, "ResourceLabel" :: Maybe (ResourceLabel) }
 ```
 
 <p>Configures a predefined metric for a target tracking policy.</p>
@@ -1045,7 +1045,7 @@ Constructs PredefinedMetricSpecification from required parameters
 #### `newPredefinedMetricSpecification'`
 
 ``` purescript
-newPredefinedMetricSpecification' :: MetricType -> ({ "PredefinedMetricType" :: MetricType, "ResourceLabel" :: NullOrUndefined (ResourceLabel) } -> { "PredefinedMetricType" :: MetricType, "ResourceLabel" :: NullOrUndefined (ResourceLabel) }) -> PredefinedMetricSpecification
+newPredefinedMetricSpecification' :: MetricType -> ({ "PredefinedMetricType" :: MetricType, "ResourceLabel" :: Maybe (ResourceLabel) } -> { "PredefinedMetricType" :: MetricType, "ResourceLabel" :: Maybe (ResourceLabel) }) -> PredefinedMetricSpecification
 ```
 
 Constructs PredefinedMetricSpecification's fields from required parameters
@@ -1054,7 +1054,7 @@ Constructs PredefinedMetricSpecification's fields from required parameters
 
 ``` purescript
 newtype PutScalingPolicyRequest
-  = PutScalingPolicyRequest { "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: NullOrUndefined (PolicyType), "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) }
+  = PutScalingPolicyRequest { "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: Maybe (PolicyType), "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) }
 ```
 
 ##### Instances
@@ -1077,7 +1077,7 @@ Constructs PutScalingPolicyRequest from required parameters
 #### `newPutScalingPolicyRequest'`
 
 ``` purescript
-newPutScalingPolicyRequest' :: PolicyName -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ({ "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: NullOrUndefined (PolicyType), "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) } -> { "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: NullOrUndefined (PolicyType), "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) }) -> PutScalingPolicyRequest
+newPutScalingPolicyRequest' :: PolicyName -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ({ "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: Maybe (PolicyType), "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) } -> { "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: Maybe (PolicyType), "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) }) -> PutScalingPolicyRequest
 ```
 
 Constructs PutScalingPolicyRequest's fields from required parameters
@@ -1086,7 +1086,7 @@ Constructs PutScalingPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype PutScalingPolicyResponse
-  = PutScalingPolicyResponse { "PolicyARN" :: ResourceIdMaxLen1600, "Alarms" :: NullOrUndefined (Alarms) }
+  = PutScalingPolicyResponse { "PolicyARN" :: ResourceIdMaxLen1600, "Alarms" :: Maybe (Alarms) }
 ```
 
 ##### Instances
@@ -1109,7 +1109,7 @@ Constructs PutScalingPolicyResponse from required parameters
 #### `newPutScalingPolicyResponse'`
 
 ``` purescript
-newPutScalingPolicyResponse' :: ResourceIdMaxLen1600 -> ({ "PolicyARN" :: ResourceIdMaxLen1600, "Alarms" :: NullOrUndefined (Alarms) } -> { "PolicyARN" :: ResourceIdMaxLen1600, "Alarms" :: NullOrUndefined (Alarms) }) -> PutScalingPolicyResponse
+newPutScalingPolicyResponse' :: ResourceIdMaxLen1600 -> ({ "PolicyARN" :: ResourceIdMaxLen1600, "Alarms" :: Maybe (Alarms) } -> { "PolicyARN" :: ResourceIdMaxLen1600, "Alarms" :: Maybe (Alarms) }) -> PutScalingPolicyResponse
 ```
 
 Constructs PutScalingPolicyResponse's fields from required parameters
@@ -1118,7 +1118,7 @@ Constructs PutScalingPolicyResponse's fields from required parameters
 
 ``` purescript
 newtype PutScheduledActionRequest
-  = PutScheduledActionRequest { "ServiceNamespace" :: ServiceNamespace, "Schedule" :: NullOrUndefined (ResourceIdMaxLen1600), "ScheduledActionName" :: ScheduledActionName, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension), "StartTime" :: NullOrUndefined (TimestampType), "EndTime" :: NullOrUndefined (TimestampType), "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) }
+  = PutScheduledActionRequest { "ServiceNamespace" :: ServiceNamespace, "Schedule" :: Maybe (ResourceIdMaxLen1600), "ScheduledActionName" :: ScheduledActionName, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension), "StartTime" :: Maybe (TimestampType), "EndTime" :: Maybe (TimestampType), "ScalableTargetAction" :: Maybe (ScalableTargetAction) }
 ```
 
 ##### Instances
@@ -1141,7 +1141,7 @@ Constructs PutScheduledActionRequest from required parameters
 #### `newPutScheduledActionRequest'`
 
 ``` purescript
-newPutScheduledActionRequest' :: ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "Schedule" :: NullOrUndefined (ResourceIdMaxLen1600), "ScheduledActionName" :: ScheduledActionName, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension), "StartTime" :: NullOrUndefined (TimestampType), "EndTime" :: NullOrUndefined (TimestampType), "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) } -> { "ServiceNamespace" :: ServiceNamespace, "Schedule" :: NullOrUndefined (ResourceIdMaxLen1600), "ScheduledActionName" :: ScheduledActionName, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension), "StartTime" :: NullOrUndefined (TimestampType), "EndTime" :: NullOrUndefined (TimestampType), "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) }) -> PutScheduledActionRequest
+newPutScheduledActionRequest' :: ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "Schedule" :: Maybe (ResourceIdMaxLen1600), "ScheduledActionName" :: ScheduledActionName, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension), "StartTime" :: Maybe (TimestampType), "EndTime" :: Maybe (TimestampType), "ScalableTargetAction" :: Maybe (ScalableTargetAction) } -> { "ServiceNamespace" :: ServiceNamespace, "Schedule" :: Maybe (ResourceIdMaxLen1600), "ScheduledActionName" :: ScheduledActionName, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension), "StartTime" :: Maybe (TimestampType), "EndTime" :: Maybe (TimestampType), "ScalableTargetAction" :: Maybe (ScalableTargetAction) }) -> PutScheduledActionRequest
 ```
 
 Constructs PutScheduledActionRequest's fields from required parameters
@@ -1166,7 +1166,7 @@ Encode PutScheduledActionResponse
 
 ``` purescript
 newtype RegisterScalableTargetRequest
-  = RegisterScalableTargetRequest { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "MinCapacity" :: NullOrUndefined (ResourceCapacity), "MaxCapacity" :: NullOrUndefined (ResourceCapacity), "RoleARN" :: NullOrUndefined (ResourceIdMaxLen1600) }
+  = RegisterScalableTargetRequest { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "MinCapacity" :: Maybe (ResourceCapacity), "MaxCapacity" :: Maybe (ResourceCapacity), "RoleARN" :: Maybe (ResourceIdMaxLen1600) }
 ```
 
 ##### Instances
@@ -1189,7 +1189,7 @@ Constructs RegisterScalableTargetRequest from required parameters
 #### `newRegisterScalableTargetRequest'`
 
 ``` purescript
-newRegisterScalableTargetRequest' :: ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "MinCapacity" :: NullOrUndefined (ResourceCapacity), "MaxCapacity" :: NullOrUndefined (ResourceCapacity), "RoleARN" :: NullOrUndefined (ResourceIdMaxLen1600) } -> { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "MinCapacity" :: NullOrUndefined (ResourceCapacity), "MaxCapacity" :: NullOrUndefined (ResourceCapacity), "RoleARN" :: NullOrUndefined (ResourceIdMaxLen1600) }) -> RegisterScalableTargetRequest
+newRegisterScalableTargetRequest' :: ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ({ "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "MinCapacity" :: Maybe (ResourceCapacity), "MaxCapacity" :: Maybe (ResourceCapacity), "RoleARN" :: Maybe (ResourceIdMaxLen1600) } -> { "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "MinCapacity" :: Maybe (ResourceCapacity), "MaxCapacity" :: Maybe (ResourceCapacity), "RoleARN" :: Maybe (ResourceIdMaxLen1600) }) -> RegisterScalableTargetRequest
 ```
 
 Constructs RegisterScalableTargetRequest's fields from required parameters
@@ -1344,7 +1344,7 @@ Constructs ScalableTarget's fields from required parameters
 
 ``` purescript
 newtype ScalableTargetAction
-  = ScalableTargetAction { "MinCapacity" :: NullOrUndefined (ResourceCapacity), "MaxCapacity" :: NullOrUndefined (ResourceCapacity) }
+  = ScalableTargetAction { "MinCapacity" :: Maybe (ResourceCapacity), "MaxCapacity" :: Maybe (ResourceCapacity) }
 ```
 
 <p>Represents the minimum and maximum capacity for a scheduled action.</p>
@@ -1369,7 +1369,7 @@ Constructs ScalableTargetAction from required parameters
 #### `newScalableTargetAction'`
 
 ``` purescript
-newScalableTargetAction' :: ({ "MinCapacity" :: NullOrUndefined (ResourceCapacity), "MaxCapacity" :: NullOrUndefined (ResourceCapacity) } -> { "MinCapacity" :: NullOrUndefined (ResourceCapacity), "MaxCapacity" :: NullOrUndefined (ResourceCapacity) }) -> ScalableTargetAction
+newScalableTargetAction' :: ({ "MinCapacity" :: Maybe (ResourceCapacity), "MaxCapacity" :: Maybe (ResourceCapacity) } -> { "MinCapacity" :: Maybe (ResourceCapacity), "MaxCapacity" :: Maybe (ResourceCapacity) }) -> ScalableTargetAction
 ```
 
 Constructs ScalableTargetAction's fields from required parameters
@@ -1410,7 +1410,7 @@ Encode ScalingActivities
 
 ``` purescript
 newtype ScalingActivity
-  = ScalingActivity { "ActivityId" :: ResourceId, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "Description" :: XmlString, "Cause" :: XmlString, "StartTime" :: TimestampType, "EndTime" :: NullOrUndefined (TimestampType), "StatusCode" :: ScalingActivityStatusCode, "StatusMessage" :: NullOrUndefined (XmlString), "Details" :: NullOrUndefined (XmlString) }
+  = ScalingActivity { "ActivityId" :: ResourceId, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "Description" :: XmlString, "Cause" :: XmlString, "StartTime" :: TimestampType, "EndTime" :: Maybe (TimestampType), "StatusCode" :: ScalingActivityStatusCode, "StatusMessage" :: Maybe (XmlString), "Details" :: Maybe (XmlString) }
 ```
 
 <p>Represents a scaling activity.</p>
@@ -1435,7 +1435,7 @@ Constructs ScalingActivity from required parameters
 #### `newScalingActivity'`
 
 ``` purescript
-newScalingActivity' :: ResourceId -> XmlString -> XmlString -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> TimestampType -> ScalingActivityStatusCode -> ({ "ActivityId" :: ResourceId, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "Description" :: XmlString, "Cause" :: XmlString, "StartTime" :: TimestampType, "EndTime" :: NullOrUndefined (TimestampType), "StatusCode" :: ScalingActivityStatusCode, "StatusMessage" :: NullOrUndefined (XmlString), "Details" :: NullOrUndefined (XmlString) } -> { "ActivityId" :: ResourceId, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "Description" :: XmlString, "Cause" :: XmlString, "StartTime" :: TimestampType, "EndTime" :: NullOrUndefined (TimestampType), "StatusCode" :: ScalingActivityStatusCode, "StatusMessage" :: NullOrUndefined (XmlString), "Details" :: NullOrUndefined (XmlString) }) -> ScalingActivity
+newScalingActivity' :: ResourceId -> XmlString -> XmlString -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> TimestampType -> ScalingActivityStatusCode -> ({ "ActivityId" :: ResourceId, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "Description" :: XmlString, "Cause" :: XmlString, "StartTime" :: TimestampType, "EndTime" :: Maybe (TimestampType), "StatusCode" :: ScalingActivityStatusCode, "StatusMessage" :: Maybe (XmlString), "Details" :: Maybe (XmlString) } -> { "ActivityId" :: ResourceId, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "Description" :: XmlString, "Cause" :: XmlString, "StartTime" :: TimestampType, "EndTime" :: Maybe (TimestampType), "StatusCode" :: ScalingActivityStatusCode, "StatusMessage" :: Maybe (XmlString), "Details" :: Maybe (XmlString) }) -> ScalingActivity
 ```
 
 Constructs ScalingActivity's fields from required parameters
@@ -1492,7 +1492,7 @@ Encode ScalingPolicies
 
 ``` purescript
 newtype ScalingPolicy
-  = ScalingPolicy { "PolicyARN" :: ResourceIdMaxLen1600, "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: PolicyType, "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration), "Alarms" :: NullOrUndefined (Alarms), "CreationTime" :: TimestampType }
+  = ScalingPolicy { "PolicyARN" :: ResourceIdMaxLen1600, "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: PolicyType, "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration), "Alarms" :: Maybe (Alarms), "CreationTime" :: TimestampType }
 ```
 
 <p>Represents a scaling policy.</p>
@@ -1517,7 +1517,7 @@ Constructs ScalingPolicy from required parameters
 #### `newScalingPolicy'`
 
 ``` purescript
-newScalingPolicy' :: TimestampType -> ResourceIdMaxLen1600 -> PolicyName -> PolicyType -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ({ "PolicyARN" :: ResourceIdMaxLen1600, "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: PolicyType, "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration), "Alarms" :: NullOrUndefined (Alarms), "CreationTime" :: TimestampType } -> { "PolicyARN" :: ResourceIdMaxLen1600, "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: PolicyType, "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration), "Alarms" :: NullOrUndefined (Alarms), "CreationTime" :: TimestampType }) -> ScalingPolicy
+newScalingPolicy' :: TimestampType -> ResourceIdMaxLen1600 -> PolicyName -> PolicyType -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ({ "PolicyARN" :: ResourceIdMaxLen1600, "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: PolicyType, "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration), "Alarms" :: Maybe (Alarms), "CreationTime" :: TimestampType } -> { "PolicyARN" :: ResourceIdMaxLen1600, "PolicyName" :: PolicyName, "ServiceNamespace" :: ServiceNamespace, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: ScalableDimension, "PolicyType" :: PolicyType, "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration), "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration), "Alarms" :: Maybe (Alarms), "CreationTime" :: TimestampType }) -> ScalingPolicy
 ```
 
 Constructs ScalingPolicy's fields from required parameters
@@ -1526,7 +1526,7 @@ Constructs ScalingPolicy's fields from required parameters
 
 ``` purescript
 newtype ScheduledAction
-  = ScheduledAction { "ScheduledActionName" :: ScheduledActionName, "ScheduledActionARN" :: ResourceIdMaxLen1600, "ServiceNamespace" :: ServiceNamespace, "Schedule" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension), "StartTime" :: NullOrUndefined (TimestampType), "EndTime" :: NullOrUndefined (TimestampType), "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction), "CreationTime" :: TimestampType }
+  = ScheduledAction { "ScheduledActionName" :: ScheduledActionName, "ScheduledActionARN" :: ResourceIdMaxLen1600, "ServiceNamespace" :: ServiceNamespace, "Schedule" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension), "StartTime" :: Maybe (TimestampType), "EndTime" :: Maybe (TimestampType), "ScalableTargetAction" :: Maybe (ScalableTargetAction), "CreationTime" :: TimestampType }
 ```
 
 <p>Represents a scheduled action.</p>
@@ -1551,7 +1551,7 @@ Constructs ScheduledAction from required parameters
 #### `newScheduledAction'`
 
 ``` purescript
-newScheduledAction' :: TimestampType -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ({ "ScheduledActionName" :: ScheduledActionName, "ScheduledActionARN" :: ResourceIdMaxLen1600, "ServiceNamespace" :: ServiceNamespace, "Schedule" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension), "StartTime" :: NullOrUndefined (TimestampType), "EndTime" :: NullOrUndefined (TimestampType), "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction), "CreationTime" :: TimestampType } -> { "ScheduledActionName" :: ScheduledActionName, "ScheduledActionARN" :: ResourceIdMaxLen1600, "ServiceNamespace" :: ServiceNamespace, "Schedule" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: NullOrUndefined (ScalableDimension), "StartTime" :: NullOrUndefined (TimestampType), "EndTime" :: NullOrUndefined (TimestampType), "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction), "CreationTime" :: TimestampType }) -> ScheduledAction
+newScheduledAction' :: TimestampType -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ({ "ScheduledActionName" :: ScheduledActionName, "ScheduledActionARN" :: ResourceIdMaxLen1600, "ServiceNamespace" :: ServiceNamespace, "Schedule" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension), "StartTime" :: Maybe (TimestampType), "EndTime" :: Maybe (TimestampType), "ScalableTargetAction" :: Maybe (ScalableTargetAction), "CreationTime" :: TimestampType } -> { "ScheduledActionName" :: ScheduledActionName, "ScheduledActionARN" :: ResourceIdMaxLen1600, "ServiceNamespace" :: ServiceNamespace, "Schedule" :: ResourceIdMaxLen1600, "ResourceId" :: ResourceIdMaxLen1600, "ScalableDimension" :: Maybe (ScalableDimension), "StartTime" :: Maybe (TimestampType), "EndTime" :: Maybe (TimestampType), "ScalableTargetAction" :: Maybe (ScalableTargetAction), "CreationTime" :: TimestampType }) -> ScheduledAction
 ```
 
 Constructs ScheduledAction's fields from required parameters
@@ -1608,7 +1608,7 @@ Encode ServiceNamespace
 
 ``` purescript
 newtype StepAdjustment
-  = StepAdjustment { "MetricIntervalLowerBound" :: NullOrUndefined (MetricScale), "MetricIntervalUpperBound" :: NullOrUndefined (MetricScale), "ScalingAdjustment" :: ScalingAdjustment }
+  = StepAdjustment { "MetricIntervalLowerBound" :: Maybe (MetricScale), "MetricIntervalUpperBound" :: Maybe (MetricScale), "ScalingAdjustment" :: ScalingAdjustment }
 ```
 
 <p>Represents a step adjustment for a <a>StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm. </p> <p>For the following examples, suppose that you have an alarm with a breach threshold of 50:</p> <ul> <li> <p>To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.</p> </li> <li> <p>To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.</p> </li> </ul> <p>There are a few rules for the step adjustments for your step policy:</p> <ul> <li> <p>The ranges of your step adjustments can't overlap or have a gap.</p> </li> <li> <p>At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.</p> </li> <li> <p>At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.</p> </li> <li> <p>The upper and lower bound can't be null in the same step adjustment.</p> </li> </ul>
@@ -1633,7 +1633,7 @@ Constructs StepAdjustment from required parameters
 #### `newStepAdjustment'`
 
 ``` purescript
-newStepAdjustment' :: ScalingAdjustment -> ({ "MetricIntervalLowerBound" :: NullOrUndefined (MetricScale), "MetricIntervalUpperBound" :: NullOrUndefined (MetricScale), "ScalingAdjustment" :: ScalingAdjustment } -> { "MetricIntervalLowerBound" :: NullOrUndefined (MetricScale), "MetricIntervalUpperBound" :: NullOrUndefined (MetricScale), "ScalingAdjustment" :: ScalingAdjustment }) -> StepAdjustment
+newStepAdjustment' :: ScalingAdjustment -> ({ "MetricIntervalLowerBound" :: Maybe (MetricScale), "MetricIntervalUpperBound" :: Maybe (MetricScale), "ScalingAdjustment" :: ScalingAdjustment } -> { "MetricIntervalLowerBound" :: Maybe (MetricScale), "MetricIntervalUpperBound" :: Maybe (MetricScale), "ScalingAdjustment" :: ScalingAdjustment }) -> StepAdjustment
 ```
 
 Constructs StepAdjustment's fields from required parameters
@@ -1658,7 +1658,7 @@ Encode StepAdjustments
 
 ``` purescript
 newtype StepScalingPolicyConfiguration
-  = StepScalingPolicyConfiguration { "AdjustmentType" :: NullOrUndefined (AdjustmentType), "StepAdjustments" :: NullOrUndefined (StepAdjustments), "MinAdjustmentMagnitude" :: NullOrUndefined (MinAdjustmentMagnitude), "Cooldown" :: NullOrUndefined (Cooldown), "MetricAggregationType" :: NullOrUndefined (MetricAggregationType) }
+  = StepScalingPolicyConfiguration { "AdjustmentType" :: Maybe (AdjustmentType), "StepAdjustments" :: Maybe (StepAdjustments), "MinAdjustmentMagnitude" :: Maybe (MinAdjustmentMagnitude), "Cooldown" :: Maybe (Cooldown), "MetricAggregationType" :: Maybe (MetricAggregationType) }
 ```
 
 <p>Represents a step scaling policy configuration.</p>
@@ -1683,7 +1683,7 @@ Constructs StepScalingPolicyConfiguration from required parameters
 #### `newStepScalingPolicyConfiguration'`
 
 ``` purescript
-newStepScalingPolicyConfiguration' :: ({ "AdjustmentType" :: NullOrUndefined (AdjustmentType), "StepAdjustments" :: NullOrUndefined (StepAdjustments), "MinAdjustmentMagnitude" :: NullOrUndefined (MinAdjustmentMagnitude), "Cooldown" :: NullOrUndefined (Cooldown), "MetricAggregationType" :: NullOrUndefined (MetricAggregationType) } -> { "AdjustmentType" :: NullOrUndefined (AdjustmentType), "StepAdjustments" :: NullOrUndefined (StepAdjustments), "MinAdjustmentMagnitude" :: NullOrUndefined (MinAdjustmentMagnitude), "Cooldown" :: NullOrUndefined (Cooldown), "MetricAggregationType" :: NullOrUndefined (MetricAggregationType) }) -> StepScalingPolicyConfiguration
+newStepScalingPolicyConfiguration' :: ({ "AdjustmentType" :: Maybe (AdjustmentType), "StepAdjustments" :: Maybe (StepAdjustments), "MinAdjustmentMagnitude" :: Maybe (MinAdjustmentMagnitude), "Cooldown" :: Maybe (Cooldown), "MetricAggregationType" :: Maybe (MetricAggregationType) } -> { "AdjustmentType" :: Maybe (AdjustmentType), "StepAdjustments" :: Maybe (StepAdjustments), "MinAdjustmentMagnitude" :: Maybe (MinAdjustmentMagnitude), "Cooldown" :: Maybe (Cooldown), "MetricAggregationType" :: Maybe (MetricAggregationType) }) -> StepScalingPolicyConfiguration
 ```
 
 Constructs StepScalingPolicyConfiguration's fields from required parameters
@@ -1692,7 +1692,7 @@ Constructs StepScalingPolicyConfiguration's fields from required parameters
 
 ``` purescript
 newtype TargetTrackingScalingPolicyConfiguration
-  = TargetTrackingScalingPolicyConfiguration { "TargetValue" :: MetricScale, "PredefinedMetricSpecification" :: NullOrUndefined (PredefinedMetricSpecification), "CustomizedMetricSpecification" :: NullOrUndefined (CustomizedMetricSpecification), "ScaleOutCooldown" :: NullOrUndefined (Cooldown), "ScaleInCooldown" :: NullOrUndefined (Cooldown), "DisableScaleIn" :: NullOrUndefined (DisableScaleIn) }
+  = TargetTrackingScalingPolicyConfiguration { "TargetValue" :: MetricScale, "PredefinedMetricSpecification" :: Maybe (PredefinedMetricSpecification), "CustomizedMetricSpecification" :: Maybe (CustomizedMetricSpecification), "ScaleOutCooldown" :: Maybe (Cooldown), "ScaleInCooldown" :: Maybe (Cooldown), "DisableScaleIn" :: Maybe (DisableScaleIn) }
 ```
 
 <p>Represents a target tracking scaling policy configuration.</p>
@@ -1717,7 +1717,7 @@ Constructs TargetTrackingScalingPolicyConfiguration from required parameters
 #### `newTargetTrackingScalingPolicyConfiguration'`
 
 ``` purescript
-newTargetTrackingScalingPolicyConfiguration' :: MetricScale -> ({ "TargetValue" :: MetricScale, "PredefinedMetricSpecification" :: NullOrUndefined (PredefinedMetricSpecification), "CustomizedMetricSpecification" :: NullOrUndefined (CustomizedMetricSpecification), "ScaleOutCooldown" :: NullOrUndefined (Cooldown), "ScaleInCooldown" :: NullOrUndefined (Cooldown), "DisableScaleIn" :: NullOrUndefined (DisableScaleIn) } -> { "TargetValue" :: MetricScale, "PredefinedMetricSpecification" :: NullOrUndefined (PredefinedMetricSpecification), "CustomizedMetricSpecification" :: NullOrUndefined (CustomizedMetricSpecification), "ScaleOutCooldown" :: NullOrUndefined (Cooldown), "ScaleInCooldown" :: NullOrUndefined (Cooldown), "DisableScaleIn" :: NullOrUndefined (DisableScaleIn) }) -> TargetTrackingScalingPolicyConfiguration
+newTargetTrackingScalingPolicyConfiguration' :: MetricScale -> ({ "TargetValue" :: MetricScale, "PredefinedMetricSpecification" :: Maybe (PredefinedMetricSpecification), "CustomizedMetricSpecification" :: Maybe (CustomizedMetricSpecification), "ScaleOutCooldown" :: Maybe (Cooldown), "ScaleInCooldown" :: Maybe (Cooldown), "DisableScaleIn" :: Maybe (DisableScaleIn) } -> { "TargetValue" :: MetricScale, "PredefinedMetricSpecification" :: Maybe (PredefinedMetricSpecification), "CustomizedMetricSpecification" :: Maybe (CustomizedMetricSpecification), "ScaleOutCooldown" :: Maybe (Cooldown), "ScaleInCooldown" :: Maybe (Cooldown), "DisableScaleIn" :: Maybe (DisableScaleIn) }) -> TargetTrackingScalingPolicyConfiguration
 ```
 
 Constructs TargetTrackingScalingPolicyConfiguration's fields from required parameters
@@ -1742,7 +1742,7 @@ Encode TimestampType
 
 ``` purescript
 newtype ValidationException
-  = ValidationException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ValidationException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>An exception was thrown for a validation issue. Review the available parameters for the API request.</p>
@@ -1767,7 +1767,7 @@ Constructs ValidationException from required parameters
 #### `newValidationException'`
 
 ``` purescript
-newValidationException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ValidationException
+newValidationException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ValidationException
 ```
 
 Constructs ValidationException's fields from required parameters

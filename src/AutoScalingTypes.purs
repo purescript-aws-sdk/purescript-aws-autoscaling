@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -60,7 +59,7 @@ instance encodeAlarms :: Encode Alarms where encode = genericEncode options
 
 -- | <p>Concurrent updates caused an exception, for example, if you request an update to an Application Auto Scaling resource that already has a pending update.</p>
 newtype ConcurrentUpdateException = ConcurrentUpdateException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeConcurrentUpdateException :: Newtype ConcurrentUpdateException _
 derive instance repGenericConcurrentUpdateException :: Generic ConcurrentUpdateException _
@@ -70,12 +69,12 @@ instance encodeConcurrentUpdateException :: Encode ConcurrentUpdateException whe
 
 -- | Constructs ConcurrentUpdateException from required parameters
 newConcurrentUpdateException :: ConcurrentUpdateException
-newConcurrentUpdateException  = ConcurrentUpdateException { "Message": (NullOrUndefined Nothing) }
+newConcurrentUpdateException  = ConcurrentUpdateException { "Message": Nothing }
 
 -- | Constructs ConcurrentUpdateException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConcurrentUpdateException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ConcurrentUpdateException
-newConcurrentUpdateException'  customize = (ConcurrentUpdateException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newConcurrentUpdateException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ConcurrentUpdateException
+newConcurrentUpdateException'  customize = (ConcurrentUpdateException <<< customize) { "Message": Nothing }
 
 
 
@@ -92,9 +91,9 @@ instance encodeCooldown :: Encode Cooldown where encode = genericEncode options
 newtype CustomizedMetricSpecification = CustomizedMetricSpecification 
   { "MetricName" :: (MetricName)
   , "Namespace" :: (MetricNamespace)
-  , "Dimensions" :: NullOrUndefined (MetricDimensions)
+  , "Dimensions" :: Maybe (MetricDimensions)
   , "Statistic" :: (MetricStatistic)
-  , "Unit" :: NullOrUndefined (MetricUnit)
+  , "Unit" :: Maybe (MetricUnit)
   }
 derive instance newtypeCustomizedMetricSpecification :: Newtype CustomizedMetricSpecification _
 derive instance repGenericCustomizedMetricSpecification :: Generic CustomizedMetricSpecification _
@@ -104,12 +103,12 @@ instance encodeCustomizedMetricSpecification :: Encode CustomizedMetricSpecifica
 
 -- | Constructs CustomizedMetricSpecification from required parameters
 newCustomizedMetricSpecification :: MetricName -> MetricNamespace -> MetricStatistic -> CustomizedMetricSpecification
-newCustomizedMetricSpecification _MetricName _Namespace _Statistic = CustomizedMetricSpecification { "MetricName": _MetricName, "Namespace": _Namespace, "Statistic": _Statistic, "Dimensions": (NullOrUndefined Nothing), "Unit": (NullOrUndefined Nothing) }
+newCustomizedMetricSpecification _MetricName _Namespace _Statistic = CustomizedMetricSpecification { "MetricName": _MetricName, "Namespace": _Namespace, "Statistic": _Statistic, "Dimensions": Nothing, "Unit": Nothing }
 
 -- | Constructs CustomizedMetricSpecification's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCustomizedMetricSpecification' :: MetricName -> MetricNamespace -> MetricStatistic -> ( { "MetricName" :: (MetricName) , "Namespace" :: (MetricNamespace) , "Dimensions" :: NullOrUndefined (MetricDimensions) , "Statistic" :: (MetricStatistic) , "Unit" :: NullOrUndefined (MetricUnit) } -> {"MetricName" :: (MetricName) , "Namespace" :: (MetricNamespace) , "Dimensions" :: NullOrUndefined (MetricDimensions) , "Statistic" :: (MetricStatistic) , "Unit" :: NullOrUndefined (MetricUnit) } ) -> CustomizedMetricSpecification
-newCustomizedMetricSpecification' _MetricName _Namespace _Statistic customize = (CustomizedMetricSpecification <<< customize) { "MetricName": _MetricName, "Namespace": _Namespace, "Statistic": _Statistic, "Dimensions": (NullOrUndefined Nothing), "Unit": (NullOrUndefined Nothing) }
+newCustomizedMetricSpecification' :: MetricName -> MetricNamespace -> MetricStatistic -> ( { "MetricName" :: (MetricName) , "Namespace" :: (MetricNamespace) , "Dimensions" :: Maybe (MetricDimensions) , "Statistic" :: (MetricStatistic) , "Unit" :: Maybe (MetricUnit) } -> {"MetricName" :: (MetricName) , "Namespace" :: (MetricNamespace) , "Dimensions" :: Maybe (MetricDimensions) , "Statistic" :: (MetricStatistic) , "Unit" :: Maybe (MetricUnit) } ) -> CustomizedMetricSpecification
+newCustomizedMetricSpecification' _MetricName _Namespace _Statistic customize = (CustomizedMetricSpecification <<< customize) { "MetricName": _MetricName, "Namespace": _Namespace, "Statistic": _Statistic, "Dimensions": Nothing, "Unit": Nothing }
 
 
 
@@ -149,7 +148,7 @@ newtype DeleteScheduledActionRequest = DeleteScheduledActionRequest
   { "ServiceNamespace" :: (ServiceNamespace)
   , "ScheduledActionName" :: (ResourceIdMaxLen1600)
   , "ResourceId" :: (ResourceIdMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
   }
 derive instance newtypeDeleteScheduledActionRequest :: Newtype DeleteScheduledActionRequest _
 derive instance repGenericDeleteScheduledActionRequest :: Generic DeleteScheduledActionRequest _
@@ -159,12 +158,12 @@ instance encodeDeleteScheduledActionRequest :: Encode DeleteScheduledActionReque
 
 -- | Constructs DeleteScheduledActionRequest from required parameters
 newDeleteScheduledActionRequest :: ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ServiceNamespace -> DeleteScheduledActionRequest
-newDeleteScheduledActionRequest _ResourceId _ScheduledActionName _ServiceNamespace = DeleteScheduledActionRequest { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "ScalableDimension": (NullOrUndefined Nothing) }
+newDeleteScheduledActionRequest _ResourceId _ScheduledActionName _ServiceNamespace = DeleteScheduledActionRequest { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "ScalableDimension": Nothing }
 
 -- | Constructs DeleteScheduledActionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteScheduledActionRequest' :: ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ScheduledActionName" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ScheduledActionName" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) } ) -> DeleteScheduledActionRequest
-newDeleteScheduledActionRequest' _ResourceId _ScheduledActionName _ServiceNamespace customize = (DeleteScheduledActionRequest <<< customize) { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "ScalableDimension": (NullOrUndefined Nothing) }
+newDeleteScheduledActionRequest' :: ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ScheduledActionName" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ScheduledActionName" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) } ) -> DeleteScheduledActionRequest
+newDeleteScheduledActionRequest' _ResourceId _ScheduledActionName _ServiceNamespace customize = (DeleteScheduledActionRequest <<< customize) { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "ScalableDimension": Nothing }
 
 
 
@@ -210,10 +209,10 @@ instance encodeDeregisterScalableTargetResponse :: Encode DeregisterScalableTarg
 
 newtype DescribeScalableTargetsRequest = DescribeScalableTargetsRequest 
   { "ServiceNamespace" :: (ServiceNamespace)
-  , "ResourceIds" :: NullOrUndefined (ResourceIdsMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  , "ResourceIds" :: Maybe (ResourceIdsMaxLen1600)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScalableTargetsRequest :: Newtype DescribeScalableTargetsRequest _
 derive instance repGenericDescribeScalableTargetsRequest :: Generic DescribeScalableTargetsRequest _
@@ -223,18 +222,18 @@ instance encodeDescribeScalableTargetsRequest :: Encode DescribeScalableTargetsR
 
 -- | Constructs DescribeScalableTargetsRequest from required parameters
 newDescribeScalableTargetsRequest :: ServiceNamespace -> DescribeScalableTargetsRequest
-newDescribeScalableTargetsRequest _ServiceNamespace = DescribeScalableTargetsRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceIds": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing) }
+newDescribeScalableTargetsRequest _ServiceNamespace = DescribeScalableTargetsRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "ResourceIds": Nothing, "ScalableDimension": Nothing }
 
 -- | Constructs DescribeScalableTargetsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalableTargetsRequest' :: ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ResourceIds" :: NullOrUndefined (ResourceIdsMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ResourceIds" :: NullOrUndefined (ResourceIdsMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScalableTargetsRequest
-newDescribeScalableTargetsRequest' _ServiceNamespace customize = (DescribeScalableTargetsRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceIds": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing) }
+newDescribeScalableTargetsRequest' :: ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ResourceIds" :: Maybe (ResourceIdsMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ResourceIds" :: Maybe (ResourceIdsMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScalableTargetsRequest
+newDescribeScalableTargetsRequest' _ServiceNamespace customize = (DescribeScalableTargetsRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "ResourceIds": Nothing, "ScalableDimension": Nothing }
 
 
 
 newtype DescribeScalableTargetsResponse = DescribeScalableTargetsResponse 
-  { "ScalableTargets" :: NullOrUndefined (ScalableTargets)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  { "ScalableTargets" :: Maybe (ScalableTargets)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScalableTargetsResponse :: Newtype DescribeScalableTargetsResponse _
 derive instance repGenericDescribeScalableTargetsResponse :: Generic DescribeScalableTargetsResponse _
@@ -244,21 +243,21 @@ instance encodeDescribeScalableTargetsResponse :: Encode DescribeScalableTargets
 
 -- | Constructs DescribeScalableTargetsResponse from required parameters
 newDescribeScalableTargetsResponse :: DescribeScalableTargetsResponse
-newDescribeScalableTargetsResponse  = DescribeScalableTargetsResponse { "NextToken": (NullOrUndefined Nothing), "ScalableTargets": (NullOrUndefined Nothing) }
+newDescribeScalableTargetsResponse  = DescribeScalableTargetsResponse { "NextToken": Nothing, "ScalableTargets": Nothing }
 
 -- | Constructs DescribeScalableTargetsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalableTargetsResponse' :: ( { "ScalableTargets" :: NullOrUndefined (ScalableTargets) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ScalableTargets" :: NullOrUndefined (ScalableTargets) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScalableTargetsResponse
-newDescribeScalableTargetsResponse'  customize = (DescribeScalableTargetsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "ScalableTargets": (NullOrUndefined Nothing) }
+newDescribeScalableTargetsResponse' :: ( { "ScalableTargets" :: Maybe (ScalableTargets) , "NextToken" :: Maybe (XmlString) } -> {"ScalableTargets" :: Maybe (ScalableTargets) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScalableTargetsResponse
+newDescribeScalableTargetsResponse'  customize = (DescribeScalableTargetsResponse <<< customize) { "NextToken": Nothing, "ScalableTargets": Nothing }
 
 
 
 newtype DescribeScalingActivitiesRequest = DescribeScalingActivitiesRequest 
   { "ServiceNamespace" :: (ServiceNamespace)
-  , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  , "ResourceId" :: Maybe (ResourceIdMaxLen1600)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScalingActivitiesRequest :: Newtype DescribeScalingActivitiesRequest _
 derive instance repGenericDescribeScalingActivitiesRequest :: Generic DescribeScalingActivitiesRequest _
@@ -268,18 +267,18 @@ instance encodeDescribeScalingActivitiesRequest :: Encode DescribeScalingActivit
 
 -- | Constructs DescribeScalingActivitiesRequest from required parameters
 newDescribeScalingActivitiesRequest :: ServiceNamespace -> DescribeScalingActivitiesRequest
-newDescribeScalingActivitiesRequest _ServiceNamespace = DescribeScalingActivitiesRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing) }
+newDescribeScalingActivitiesRequest _ServiceNamespace = DescribeScalingActivitiesRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "ResourceId": Nothing, "ScalableDimension": Nothing }
 
 -- | Constructs DescribeScalingActivitiesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalingActivitiesRequest' :: ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScalingActivitiesRequest
-newDescribeScalingActivitiesRequest' _ServiceNamespace customize = (DescribeScalingActivitiesRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing) }
+newDescribeScalingActivitiesRequest' :: ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: Maybe (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: Maybe (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScalingActivitiesRequest
+newDescribeScalingActivitiesRequest' _ServiceNamespace customize = (DescribeScalingActivitiesRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "ResourceId": Nothing, "ScalableDimension": Nothing }
 
 
 
 newtype DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse 
-  { "ScalingActivities" :: NullOrUndefined (ScalingActivities)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  { "ScalingActivities" :: Maybe (ScalingActivities)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScalingActivitiesResponse :: Newtype DescribeScalingActivitiesResponse _
 derive instance repGenericDescribeScalingActivitiesResponse :: Generic DescribeScalingActivitiesResponse _
@@ -289,22 +288,22 @@ instance encodeDescribeScalingActivitiesResponse :: Encode DescribeScalingActivi
 
 -- | Constructs DescribeScalingActivitiesResponse from required parameters
 newDescribeScalingActivitiesResponse :: DescribeScalingActivitiesResponse
-newDescribeScalingActivitiesResponse  = DescribeScalingActivitiesResponse { "NextToken": (NullOrUndefined Nothing), "ScalingActivities": (NullOrUndefined Nothing) }
+newDescribeScalingActivitiesResponse  = DescribeScalingActivitiesResponse { "NextToken": Nothing, "ScalingActivities": Nothing }
 
 -- | Constructs DescribeScalingActivitiesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalingActivitiesResponse' :: ( { "ScalingActivities" :: NullOrUndefined (ScalingActivities) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ScalingActivities" :: NullOrUndefined (ScalingActivities) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScalingActivitiesResponse
-newDescribeScalingActivitiesResponse'  customize = (DescribeScalingActivitiesResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "ScalingActivities": (NullOrUndefined Nothing) }
+newDescribeScalingActivitiesResponse' :: ( { "ScalingActivities" :: Maybe (ScalingActivities) , "NextToken" :: Maybe (XmlString) } -> {"ScalingActivities" :: Maybe (ScalingActivities) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScalingActivitiesResponse
+newDescribeScalingActivitiesResponse'  customize = (DescribeScalingActivitiesResponse <<< customize) { "NextToken": Nothing, "ScalingActivities": Nothing }
 
 
 
 newtype DescribeScalingPoliciesRequest = DescribeScalingPoliciesRequest 
-  { "PolicyNames" :: NullOrUndefined (ResourceIdsMaxLen1600)
+  { "PolicyNames" :: Maybe (ResourceIdsMaxLen1600)
   , "ServiceNamespace" :: (ServiceNamespace)
-  , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  , "ResourceId" :: Maybe (ResourceIdMaxLen1600)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScalingPoliciesRequest :: Newtype DescribeScalingPoliciesRequest _
 derive instance repGenericDescribeScalingPoliciesRequest :: Generic DescribeScalingPoliciesRequest _
@@ -314,18 +313,18 @@ instance encodeDescribeScalingPoliciesRequest :: Encode DescribeScalingPoliciesR
 
 -- | Constructs DescribeScalingPoliciesRequest from required parameters
 newDescribeScalingPoliciesRequest :: ServiceNamespace -> DescribeScalingPoliciesRequest
-newDescribeScalingPoliciesRequest _ServiceNamespace = DescribeScalingPoliciesRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "PolicyNames": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesRequest _ServiceNamespace = DescribeScalingPoliciesRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "PolicyNames": Nothing, "ResourceId": Nothing, "ScalableDimension": Nothing }
 
 -- | Constructs DescribeScalingPoliciesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalingPoliciesRequest' :: ServiceNamespace -> ( { "PolicyNames" :: NullOrUndefined (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } -> {"PolicyNames" :: NullOrUndefined (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScalingPoliciesRequest
-newDescribeScalingPoliciesRequest' _ServiceNamespace customize = (DescribeScalingPoliciesRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "PolicyNames": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesRequest' :: ServiceNamespace -> ( { "PolicyNames" :: Maybe (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: Maybe (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } -> {"PolicyNames" :: Maybe (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: Maybe (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScalingPoliciesRequest
+newDescribeScalingPoliciesRequest' _ServiceNamespace customize = (DescribeScalingPoliciesRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "PolicyNames": Nothing, "ResourceId": Nothing, "ScalableDimension": Nothing }
 
 
 
 newtype DescribeScalingPoliciesResponse = DescribeScalingPoliciesResponse 
-  { "ScalingPolicies" :: NullOrUndefined (ScalingPolicies)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  { "ScalingPolicies" :: Maybe (ScalingPolicies)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScalingPoliciesResponse :: Newtype DescribeScalingPoliciesResponse _
 derive instance repGenericDescribeScalingPoliciesResponse :: Generic DescribeScalingPoliciesResponse _
@@ -335,22 +334,22 @@ instance encodeDescribeScalingPoliciesResponse :: Encode DescribeScalingPolicies
 
 -- | Constructs DescribeScalingPoliciesResponse from required parameters
 newDescribeScalingPoliciesResponse :: DescribeScalingPoliciesResponse
-newDescribeScalingPoliciesResponse  = DescribeScalingPoliciesResponse { "NextToken": (NullOrUndefined Nothing), "ScalingPolicies": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesResponse  = DescribeScalingPoliciesResponse { "NextToken": Nothing, "ScalingPolicies": Nothing }
 
 -- | Constructs DescribeScalingPoliciesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScalingPoliciesResponse' :: ( { "ScalingPolicies" :: NullOrUndefined (ScalingPolicies) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ScalingPolicies" :: NullOrUndefined (ScalingPolicies) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScalingPoliciesResponse
-newDescribeScalingPoliciesResponse'  customize = (DescribeScalingPoliciesResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "ScalingPolicies": (NullOrUndefined Nothing) }
+newDescribeScalingPoliciesResponse' :: ( { "ScalingPolicies" :: Maybe (ScalingPolicies) , "NextToken" :: Maybe (XmlString) } -> {"ScalingPolicies" :: Maybe (ScalingPolicies) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScalingPoliciesResponse
+newDescribeScalingPoliciesResponse'  customize = (DescribeScalingPoliciesResponse <<< customize) { "NextToken": Nothing, "ScalingPolicies": Nothing }
 
 
 
 newtype DescribeScheduledActionsRequest = DescribeScheduledActionsRequest 
-  { "ScheduledActionNames" :: NullOrUndefined (ResourceIdsMaxLen1600)
+  { "ScheduledActionNames" :: Maybe (ResourceIdsMaxLen1600)
   , "ServiceNamespace" :: (ServiceNamespace)
-  , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  , "ResourceId" :: Maybe (ResourceIdMaxLen1600)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScheduledActionsRequest :: Newtype DescribeScheduledActionsRequest _
 derive instance repGenericDescribeScheduledActionsRequest :: Generic DescribeScheduledActionsRequest _
@@ -360,18 +359,18 @@ instance encodeDescribeScheduledActionsRequest :: Encode DescribeScheduledAction
 
 -- | Constructs DescribeScheduledActionsRequest from required parameters
 newDescribeScheduledActionsRequest :: ServiceNamespace -> DescribeScheduledActionsRequest
-newDescribeScheduledActionsRequest _ServiceNamespace = DescribeScheduledActionsRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing), "ScheduledActionNames": (NullOrUndefined Nothing) }
+newDescribeScheduledActionsRequest _ServiceNamespace = DescribeScheduledActionsRequest { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "ResourceId": Nothing, "ScalableDimension": Nothing, "ScheduledActionNames": Nothing }
 
 -- | Constructs DescribeScheduledActionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScheduledActionsRequest' :: ServiceNamespace -> ( { "ScheduledActionNames" :: NullOrUndefined (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ScheduledActionNames" :: NullOrUndefined (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScheduledActionsRequest
-newDescribeScheduledActionsRequest' _ServiceNamespace customize = (DescribeScheduledActionsRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ResourceId": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing), "ScheduledActionNames": (NullOrUndefined Nothing) }
+newDescribeScheduledActionsRequest' :: ServiceNamespace -> ( { "ScheduledActionNames" :: Maybe (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: Maybe (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } -> {"ScheduledActionNames" :: Maybe (ResourceIdsMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: Maybe (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScheduledActionsRequest
+newDescribeScheduledActionsRequest' _ServiceNamespace customize = (DescribeScheduledActionsRequest <<< customize) { "ServiceNamespace": _ServiceNamespace, "MaxResults": Nothing, "NextToken": Nothing, "ResourceId": Nothing, "ScalableDimension": Nothing, "ScheduledActionNames": Nothing }
 
 
 
 newtype DescribeScheduledActionsResponse = DescribeScheduledActionsResponse 
-  { "ScheduledActions" :: NullOrUndefined (ScheduledActions)
-  , "NextToken" :: NullOrUndefined (XmlString)
+  { "ScheduledActions" :: Maybe (ScheduledActions)
+  , "NextToken" :: Maybe (XmlString)
   }
 derive instance newtypeDescribeScheduledActionsResponse :: Newtype DescribeScheduledActionsResponse _
 derive instance repGenericDescribeScheduledActionsResponse :: Generic DescribeScheduledActionsResponse _
@@ -381,12 +380,12 @@ instance encodeDescribeScheduledActionsResponse :: Encode DescribeScheduledActio
 
 -- | Constructs DescribeScheduledActionsResponse from required parameters
 newDescribeScheduledActionsResponse :: DescribeScheduledActionsResponse
-newDescribeScheduledActionsResponse  = DescribeScheduledActionsResponse { "NextToken": (NullOrUndefined Nothing), "ScheduledActions": (NullOrUndefined Nothing) }
+newDescribeScheduledActionsResponse  = DescribeScheduledActionsResponse { "NextToken": Nothing, "ScheduledActions": Nothing }
 
 -- | Constructs DescribeScheduledActionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeScheduledActionsResponse' :: ( { "ScheduledActions" :: NullOrUndefined (ScheduledActions) , "NextToken" :: NullOrUndefined (XmlString) } -> {"ScheduledActions" :: NullOrUndefined (ScheduledActions) , "NextToken" :: NullOrUndefined (XmlString) } ) -> DescribeScheduledActionsResponse
-newDescribeScheduledActionsResponse'  customize = (DescribeScheduledActionsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "ScheduledActions": (NullOrUndefined Nothing) }
+newDescribeScheduledActionsResponse' :: ( { "ScheduledActions" :: Maybe (ScheduledActions) , "NextToken" :: Maybe (XmlString) } -> {"ScheduledActions" :: Maybe (ScheduledActions) , "NextToken" :: Maybe (XmlString) } ) -> DescribeScheduledActionsResponse
+newDescribeScheduledActionsResponse'  customize = (DescribeScheduledActionsResponse <<< customize) { "NextToken": Nothing, "ScheduledActions": Nothing }
 
 
 
@@ -410,7 +409,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | <p>Failed access to resources caused an exception. This exception is thrown when Application Auto Scaling is unable to retrieve the alarms associated with a scaling policy due to a client error, for example, if the role ARN specified for a scalable target does not have permission to call the CloudWatch <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a> on your behalf.</p>
 newtype FailedResourceAccessException = FailedResourceAccessException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeFailedResourceAccessException :: Newtype FailedResourceAccessException _
 derive instance repGenericFailedResourceAccessException :: Generic FailedResourceAccessException _
@@ -420,18 +419,18 @@ instance encodeFailedResourceAccessException :: Encode FailedResourceAccessExcep
 
 -- | Constructs FailedResourceAccessException from required parameters
 newFailedResourceAccessException :: FailedResourceAccessException
-newFailedResourceAccessException  = FailedResourceAccessException { "Message": (NullOrUndefined Nothing) }
+newFailedResourceAccessException  = FailedResourceAccessException { "Message": Nothing }
 
 -- | Constructs FailedResourceAccessException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFailedResourceAccessException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> FailedResourceAccessException
-newFailedResourceAccessException'  customize = (FailedResourceAccessException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newFailedResourceAccessException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> FailedResourceAccessException
+newFailedResourceAccessException'  customize = (FailedResourceAccessException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The service encountered an internal error.</p>
 newtype InternalServiceException = InternalServiceException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServiceException :: Newtype InternalServiceException _
 derive instance repGenericInternalServiceException :: Generic InternalServiceException _
@@ -441,18 +440,18 @@ instance encodeInternalServiceException :: Encode InternalServiceException where
 
 -- | Constructs InternalServiceException from required parameters
 newInternalServiceException :: InternalServiceException
-newInternalServiceException  = InternalServiceException { "Message": (NullOrUndefined Nothing) }
+newInternalServiceException  = InternalServiceException { "Message": Nothing }
 
 -- | Constructs InternalServiceException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServiceException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServiceException
-newInternalServiceException'  customize = (InternalServiceException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServiceException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InternalServiceException
+newInternalServiceException'  customize = (InternalServiceException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The next token supplied was invalid.</p>
 newtype InvalidNextTokenException = InvalidNextTokenException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInvalidNextTokenException :: Newtype InvalidNextTokenException _
 derive instance repGenericInvalidNextTokenException :: Generic InvalidNextTokenException _
@@ -462,18 +461,18 @@ instance encodeInvalidNextTokenException :: Encode InvalidNextTokenException whe
 
 -- | Constructs InvalidNextTokenException from required parameters
 newInvalidNextTokenException :: InvalidNextTokenException
-newInvalidNextTokenException  = InvalidNextTokenException { "Message": (NullOrUndefined Nothing) }
+newInvalidNextTokenException  = InvalidNextTokenException { "Message": Nothing }
 
 -- | Constructs InvalidNextTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidNextTokenException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InvalidNextTokenException
-newInvalidNextTokenException'  customize = (InvalidNextTokenException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidNextTokenException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InvalidNextTokenException
+newInvalidNextTokenException'  customize = (InvalidNextTokenException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A per-account resource limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application Auto Scaling Limits</a>.</p>
 newtype LimitExceededException = LimitExceededException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -483,12 +482,12 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "Message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": Nothing }
 
 
 
@@ -624,7 +623,7 @@ instance encodeMinAdjustmentMagnitude :: Encode MinAdjustmentMagnitude where enc
 
 -- | <p>The specified object could not be found. For any operation that depends on the existence of a scalable target, this exception is thrown if the scalable target with the specified service namespace, resource ID, and scalable dimension does not exist. For any operation that deletes or deregisters a resource, this exception is thrown if the resource cannot be found.</p>
 newtype ObjectNotFoundException = ObjectNotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeObjectNotFoundException :: Newtype ObjectNotFoundException _
 derive instance repGenericObjectNotFoundException :: Generic ObjectNotFoundException _
@@ -634,12 +633,12 @@ instance encodeObjectNotFoundException :: Encode ObjectNotFoundException where e
 
 -- | Constructs ObjectNotFoundException from required parameters
 newObjectNotFoundException :: ObjectNotFoundException
-newObjectNotFoundException  = ObjectNotFoundException { "Message": (NullOrUndefined Nothing) }
+newObjectNotFoundException  = ObjectNotFoundException { "Message": Nothing }
 
 -- | Constructs ObjectNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newObjectNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ObjectNotFoundException
-newObjectNotFoundException'  customize = (ObjectNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newObjectNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ObjectNotFoundException
+newObjectNotFoundException'  customize = (ObjectNotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -664,7 +663,7 @@ instance encodePolicyType :: Encode PolicyType where encode = genericEncode opti
 -- | <p>Configures a predefined metric for a target tracking policy.</p>
 newtype PredefinedMetricSpecification = PredefinedMetricSpecification 
   { "PredefinedMetricType" :: (MetricType)
-  , "ResourceLabel" :: NullOrUndefined (ResourceLabel)
+  , "ResourceLabel" :: Maybe (ResourceLabel)
   }
 derive instance newtypePredefinedMetricSpecification :: Newtype PredefinedMetricSpecification _
 derive instance repGenericPredefinedMetricSpecification :: Generic PredefinedMetricSpecification _
@@ -674,12 +673,12 @@ instance encodePredefinedMetricSpecification :: Encode PredefinedMetricSpecifica
 
 -- | Constructs PredefinedMetricSpecification from required parameters
 newPredefinedMetricSpecification :: MetricType -> PredefinedMetricSpecification
-newPredefinedMetricSpecification _PredefinedMetricType = PredefinedMetricSpecification { "PredefinedMetricType": _PredefinedMetricType, "ResourceLabel": (NullOrUndefined Nothing) }
+newPredefinedMetricSpecification _PredefinedMetricType = PredefinedMetricSpecification { "PredefinedMetricType": _PredefinedMetricType, "ResourceLabel": Nothing }
 
 -- | Constructs PredefinedMetricSpecification's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPredefinedMetricSpecification' :: MetricType -> ( { "PredefinedMetricType" :: (MetricType) , "ResourceLabel" :: NullOrUndefined (ResourceLabel) } -> {"PredefinedMetricType" :: (MetricType) , "ResourceLabel" :: NullOrUndefined (ResourceLabel) } ) -> PredefinedMetricSpecification
-newPredefinedMetricSpecification' _PredefinedMetricType customize = (PredefinedMetricSpecification <<< customize) { "PredefinedMetricType": _PredefinedMetricType, "ResourceLabel": (NullOrUndefined Nothing) }
+newPredefinedMetricSpecification' :: MetricType -> ( { "PredefinedMetricType" :: (MetricType) , "ResourceLabel" :: Maybe (ResourceLabel) } -> {"PredefinedMetricType" :: (MetricType) , "ResourceLabel" :: Maybe (ResourceLabel) } ) -> PredefinedMetricSpecification
+newPredefinedMetricSpecification' _PredefinedMetricType customize = (PredefinedMetricSpecification <<< customize) { "PredefinedMetricType": _PredefinedMetricType, "ResourceLabel": Nothing }
 
 
 
@@ -688,9 +687,9 @@ newtype PutScalingPolicyRequest = PutScalingPolicyRequest
   , "ServiceNamespace" :: (ServiceNamespace)
   , "ResourceId" :: (ResourceIdMaxLen1600)
   , "ScalableDimension" :: (ScalableDimension)
-  , "PolicyType" :: NullOrUndefined (PolicyType)
-  , "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration)
-  , "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration)
+  , "PolicyType" :: Maybe (PolicyType)
+  , "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration)
+  , "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration)
   }
 derive instance newtypePutScalingPolicyRequest :: Newtype PutScalingPolicyRequest _
 derive instance repGenericPutScalingPolicyRequest :: Generic PutScalingPolicyRequest _
@@ -700,18 +699,18 @@ instance encodePutScalingPolicyRequest :: Encode PutScalingPolicyRequest where e
 
 -- | Constructs PutScalingPolicyRequest from required parameters
 newPutScalingPolicyRequest :: PolicyName -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> PutScalingPolicyRequest
-newPutScalingPolicyRequest _PolicyName _ResourceId _ScalableDimension _ServiceNamespace = PutScalingPolicyRequest { "PolicyName": _PolicyName, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "PolicyType": (NullOrUndefined Nothing), "StepScalingPolicyConfiguration": (NullOrUndefined Nothing), "TargetTrackingScalingPolicyConfiguration": (NullOrUndefined Nothing) }
+newPutScalingPolicyRequest _PolicyName _ResourceId _ScalableDimension _ServiceNamespace = PutScalingPolicyRequest { "PolicyName": _PolicyName, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "PolicyType": Nothing, "StepScalingPolicyConfiguration": Nothing, "TargetTrackingScalingPolicyConfiguration": Nothing }
 
 -- | Constructs PutScalingPolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutScalingPolicyRequest' :: PolicyName -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ( { "PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: NullOrUndefined (PolicyType) , "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) } -> {"PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: NullOrUndefined (PolicyType) , "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) } ) -> PutScalingPolicyRequest
-newPutScalingPolicyRequest' _PolicyName _ResourceId _ScalableDimension _ServiceNamespace customize = (PutScalingPolicyRequest <<< customize) { "PolicyName": _PolicyName, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "PolicyType": (NullOrUndefined Nothing), "StepScalingPolicyConfiguration": (NullOrUndefined Nothing), "TargetTrackingScalingPolicyConfiguration": (NullOrUndefined Nothing) }
+newPutScalingPolicyRequest' :: PolicyName -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ( { "PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: Maybe (PolicyType) , "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) } -> {"PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: Maybe (PolicyType) , "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) } ) -> PutScalingPolicyRequest
+newPutScalingPolicyRequest' _PolicyName _ResourceId _ScalableDimension _ServiceNamespace customize = (PutScalingPolicyRequest <<< customize) { "PolicyName": _PolicyName, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "PolicyType": Nothing, "StepScalingPolicyConfiguration": Nothing, "TargetTrackingScalingPolicyConfiguration": Nothing }
 
 
 
 newtype PutScalingPolicyResponse = PutScalingPolicyResponse 
   { "PolicyARN" :: (ResourceIdMaxLen1600)
-  , "Alarms" :: NullOrUndefined (Alarms)
+  , "Alarms" :: Maybe (Alarms)
   }
 derive instance newtypePutScalingPolicyResponse :: Newtype PutScalingPolicyResponse _
 derive instance repGenericPutScalingPolicyResponse :: Generic PutScalingPolicyResponse _
@@ -721,24 +720,24 @@ instance encodePutScalingPolicyResponse :: Encode PutScalingPolicyResponse where
 
 -- | Constructs PutScalingPolicyResponse from required parameters
 newPutScalingPolicyResponse :: ResourceIdMaxLen1600 -> PutScalingPolicyResponse
-newPutScalingPolicyResponse _PolicyARN = PutScalingPolicyResponse { "PolicyARN": _PolicyARN, "Alarms": (NullOrUndefined Nothing) }
+newPutScalingPolicyResponse _PolicyARN = PutScalingPolicyResponse { "PolicyARN": _PolicyARN, "Alarms": Nothing }
 
 -- | Constructs PutScalingPolicyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutScalingPolicyResponse' :: ResourceIdMaxLen1600 -> ( { "PolicyARN" :: (ResourceIdMaxLen1600) , "Alarms" :: NullOrUndefined (Alarms) } -> {"PolicyARN" :: (ResourceIdMaxLen1600) , "Alarms" :: NullOrUndefined (Alarms) } ) -> PutScalingPolicyResponse
-newPutScalingPolicyResponse' _PolicyARN customize = (PutScalingPolicyResponse <<< customize) { "PolicyARN": _PolicyARN, "Alarms": (NullOrUndefined Nothing) }
+newPutScalingPolicyResponse' :: ResourceIdMaxLen1600 -> ( { "PolicyARN" :: (ResourceIdMaxLen1600) , "Alarms" :: Maybe (Alarms) } -> {"PolicyARN" :: (ResourceIdMaxLen1600) , "Alarms" :: Maybe (Alarms) } ) -> PutScalingPolicyResponse
+newPutScalingPolicyResponse' _PolicyARN customize = (PutScalingPolicyResponse <<< customize) { "PolicyARN": _PolicyARN, "Alarms": Nothing }
 
 
 
 newtype PutScheduledActionRequest = PutScheduledActionRequest 
   { "ServiceNamespace" :: (ServiceNamespace)
-  , "Schedule" :: NullOrUndefined (ResourceIdMaxLen1600)
+  , "Schedule" :: Maybe (ResourceIdMaxLen1600)
   , "ScheduledActionName" :: (ScheduledActionName)
   , "ResourceId" :: (ResourceIdMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
-  , "StartTime" :: NullOrUndefined (TimestampType)
-  , "EndTime" :: NullOrUndefined (TimestampType)
-  , "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
+  , "StartTime" :: Maybe (TimestampType)
+  , "EndTime" :: Maybe (TimestampType)
+  , "ScalableTargetAction" :: Maybe (ScalableTargetAction)
   }
 derive instance newtypePutScheduledActionRequest :: Newtype PutScheduledActionRequest _
 derive instance repGenericPutScheduledActionRequest :: Generic PutScheduledActionRequest _
@@ -748,12 +747,12 @@ instance encodePutScheduledActionRequest :: Encode PutScheduledActionRequest whe
 
 -- | Constructs PutScheduledActionRequest from required parameters
 newPutScheduledActionRequest :: ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> PutScheduledActionRequest
-newPutScheduledActionRequest _ResourceId _ScheduledActionName _ServiceNamespace = PutScheduledActionRequest { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing), "ScalableTargetAction": (NullOrUndefined Nothing), "Schedule": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newPutScheduledActionRequest _ResourceId _ScheduledActionName _ServiceNamespace = PutScheduledActionRequest { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": Nothing, "ScalableDimension": Nothing, "ScalableTargetAction": Nothing, "Schedule": Nothing, "StartTime": Nothing }
 
 -- | Constructs PutScheduledActionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutScheduledActionRequest' :: ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScheduledActionName" :: (ScheduledActionName) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "StartTime" :: NullOrUndefined (TimestampType) , "EndTime" :: NullOrUndefined (TimestampType) , "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) } -> {"ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: NullOrUndefined (ResourceIdMaxLen1600) , "ScheduledActionName" :: (ScheduledActionName) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "StartTime" :: NullOrUndefined (TimestampType) , "EndTime" :: NullOrUndefined (TimestampType) , "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) } ) -> PutScheduledActionRequest
-newPutScheduledActionRequest' _ResourceId _ScheduledActionName _ServiceNamespace customize = (PutScheduledActionRequest <<< customize) { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing), "ScalableTargetAction": (NullOrUndefined Nothing), "Schedule": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newPutScheduledActionRequest' :: ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: Maybe (ResourceIdMaxLen1600) , "ScheduledActionName" :: (ScheduledActionName) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "StartTime" :: Maybe (TimestampType) , "EndTime" :: Maybe (TimestampType) , "ScalableTargetAction" :: Maybe (ScalableTargetAction) } -> {"ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: Maybe (ResourceIdMaxLen1600) , "ScheduledActionName" :: (ScheduledActionName) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "StartTime" :: Maybe (TimestampType) , "EndTime" :: Maybe (TimestampType) , "ScalableTargetAction" :: Maybe (ScalableTargetAction) } ) -> PutScheduledActionRequest
+newPutScheduledActionRequest' _ResourceId _ScheduledActionName _ServiceNamespace customize = (PutScheduledActionRequest <<< customize) { "ResourceId": _ResourceId, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": Nothing, "ScalableDimension": Nothing, "ScalableTargetAction": Nothing, "Schedule": Nothing, "StartTime": Nothing }
 
 
 
@@ -770,9 +769,9 @@ newtype RegisterScalableTargetRequest = RegisterScalableTargetRequest
   { "ServiceNamespace" :: (ServiceNamespace)
   , "ResourceId" :: (ResourceIdMaxLen1600)
   , "ScalableDimension" :: (ScalableDimension)
-  , "MinCapacity" :: NullOrUndefined (ResourceCapacity)
-  , "MaxCapacity" :: NullOrUndefined (ResourceCapacity)
-  , "RoleARN" :: NullOrUndefined (ResourceIdMaxLen1600)
+  , "MinCapacity" :: Maybe (ResourceCapacity)
+  , "MaxCapacity" :: Maybe (ResourceCapacity)
+  , "RoleARN" :: Maybe (ResourceIdMaxLen1600)
   }
 derive instance newtypeRegisterScalableTargetRequest :: Newtype RegisterScalableTargetRequest _
 derive instance repGenericRegisterScalableTargetRequest :: Generic RegisterScalableTargetRequest _
@@ -782,12 +781,12 @@ instance encodeRegisterScalableTargetRequest :: Encode RegisterScalableTargetReq
 
 -- | Constructs RegisterScalableTargetRequest from required parameters
 newRegisterScalableTargetRequest :: ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> RegisterScalableTargetRequest
-newRegisterScalableTargetRequest _ResourceId _ScalableDimension _ServiceNamespace = RegisterScalableTargetRequest { "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "MaxCapacity": (NullOrUndefined Nothing), "MinCapacity": (NullOrUndefined Nothing), "RoleARN": (NullOrUndefined Nothing) }
+newRegisterScalableTargetRequest _ResourceId _ScalableDimension _ServiceNamespace = RegisterScalableTargetRequest { "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "MaxCapacity": Nothing, "MinCapacity": Nothing, "RoleARN": Nothing }
 
 -- | Constructs RegisterScalableTargetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterScalableTargetRequest' :: ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "MinCapacity" :: NullOrUndefined (ResourceCapacity) , "MaxCapacity" :: NullOrUndefined (ResourceCapacity) , "RoleARN" :: NullOrUndefined (ResourceIdMaxLen1600) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "MinCapacity" :: NullOrUndefined (ResourceCapacity) , "MaxCapacity" :: NullOrUndefined (ResourceCapacity) , "RoleARN" :: NullOrUndefined (ResourceIdMaxLen1600) } ) -> RegisterScalableTargetRequest
-newRegisterScalableTargetRequest' _ResourceId _ScalableDimension _ServiceNamespace customize = (RegisterScalableTargetRequest <<< customize) { "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "MaxCapacity": (NullOrUndefined Nothing), "MinCapacity": (NullOrUndefined Nothing), "RoleARN": (NullOrUndefined Nothing) }
+newRegisterScalableTargetRequest' :: ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ( { "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "MinCapacity" :: Maybe (ResourceCapacity) , "MaxCapacity" :: Maybe (ResourceCapacity) , "RoleARN" :: Maybe (ResourceIdMaxLen1600) } -> {"ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "MinCapacity" :: Maybe (ResourceCapacity) , "MaxCapacity" :: Maybe (ResourceCapacity) , "RoleARN" :: Maybe (ResourceIdMaxLen1600) } ) -> RegisterScalableTargetRequest
+newRegisterScalableTargetRequest' _ResourceId _ScalableDimension _ServiceNamespace customize = (RegisterScalableTargetRequest <<< customize) { "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "MaxCapacity": Nothing, "MinCapacity": Nothing, "RoleARN": Nothing }
 
 
 
@@ -883,8 +882,8 @@ newScalableTarget' _CreationTime _MaxCapacity _MinCapacity _ResourceId _RoleARN 
 
 -- | <p>Represents the minimum and maximum capacity for a scheduled action.</p>
 newtype ScalableTargetAction = ScalableTargetAction 
-  { "MinCapacity" :: NullOrUndefined (ResourceCapacity)
-  , "MaxCapacity" :: NullOrUndefined (ResourceCapacity)
+  { "MinCapacity" :: Maybe (ResourceCapacity)
+  , "MaxCapacity" :: Maybe (ResourceCapacity)
   }
 derive instance newtypeScalableTargetAction :: Newtype ScalableTargetAction _
 derive instance repGenericScalableTargetAction :: Generic ScalableTargetAction _
@@ -894,12 +893,12 @@ instance encodeScalableTargetAction :: Encode ScalableTargetAction where encode 
 
 -- | Constructs ScalableTargetAction from required parameters
 newScalableTargetAction :: ScalableTargetAction
-newScalableTargetAction  = ScalableTargetAction { "MaxCapacity": (NullOrUndefined Nothing), "MinCapacity": (NullOrUndefined Nothing) }
+newScalableTargetAction  = ScalableTargetAction { "MaxCapacity": Nothing, "MinCapacity": Nothing }
 
 -- | Constructs ScalableTargetAction's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScalableTargetAction' :: ( { "MinCapacity" :: NullOrUndefined (ResourceCapacity) , "MaxCapacity" :: NullOrUndefined (ResourceCapacity) } -> {"MinCapacity" :: NullOrUndefined (ResourceCapacity) , "MaxCapacity" :: NullOrUndefined (ResourceCapacity) } ) -> ScalableTargetAction
-newScalableTargetAction'  customize = (ScalableTargetAction <<< customize) { "MaxCapacity": (NullOrUndefined Nothing), "MinCapacity": (NullOrUndefined Nothing) }
+newScalableTargetAction' :: ( { "MinCapacity" :: Maybe (ResourceCapacity) , "MaxCapacity" :: Maybe (ResourceCapacity) } -> {"MinCapacity" :: Maybe (ResourceCapacity) , "MaxCapacity" :: Maybe (ResourceCapacity) } ) -> ScalableTargetAction
+newScalableTargetAction'  customize = (ScalableTargetAction <<< customize) { "MaxCapacity": Nothing, "MinCapacity": Nothing }
 
 
 
@@ -930,10 +929,10 @@ newtype ScalingActivity = ScalingActivity
   , "Description" :: (XmlString)
   , "Cause" :: (XmlString)
   , "StartTime" :: (TimestampType)
-  , "EndTime" :: NullOrUndefined (TimestampType)
+  , "EndTime" :: Maybe (TimestampType)
   , "StatusCode" :: (ScalingActivityStatusCode)
-  , "StatusMessage" :: NullOrUndefined (XmlString)
-  , "Details" :: NullOrUndefined (XmlString)
+  , "StatusMessage" :: Maybe (XmlString)
+  , "Details" :: Maybe (XmlString)
   }
 derive instance newtypeScalingActivity :: Newtype ScalingActivity _
 derive instance repGenericScalingActivity :: Generic ScalingActivity _
@@ -943,12 +942,12 @@ instance encodeScalingActivity :: Encode ScalingActivity where encode = genericE
 
 -- | Constructs ScalingActivity from required parameters
 newScalingActivity :: ResourceId -> XmlString -> XmlString -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> TimestampType -> ScalingActivityStatusCode -> ScalingActivity
-newScalingActivity _ActivityId _Cause _Description _ResourceId _ScalableDimension _ServiceNamespace _StartTime _StatusCode = ScalingActivity { "ActivityId": _ActivityId, "Cause": _Cause, "Description": _Description, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "StartTime": _StartTime, "StatusCode": _StatusCode, "Details": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "StatusMessage": (NullOrUndefined Nothing) }
+newScalingActivity _ActivityId _Cause _Description _ResourceId _ScalableDimension _ServiceNamespace _StartTime _StatusCode = ScalingActivity { "ActivityId": _ActivityId, "Cause": _Cause, "Description": _Description, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "StartTime": _StartTime, "StatusCode": _StatusCode, "Details": Nothing, "EndTime": Nothing, "StatusMessage": Nothing }
 
 -- | Constructs ScalingActivity's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScalingActivity' :: ResourceId -> XmlString -> XmlString -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> TimestampType -> ScalingActivityStatusCode -> ( { "ActivityId" :: (ResourceId) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "Description" :: (XmlString) , "Cause" :: (XmlString) , "StartTime" :: (TimestampType) , "EndTime" :: NullOrUndefined (TimestampType) , "StatusCode" :: (ScalingActivityStatusCode) , "StatusMessage" :: NullOrUndefined (XmlString) , "Details" :: NullOrUndefined (XmlString) } -> {"ActivityId" :: (ResourceId) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "Description" :: (XmlString) , "Cause" :: (XmlString) , "StartTime" :: (TimestampType) , "EndTime" :: NullOrUndefined (TimestampType) , "StatusCode" :: (ScalingActivityStatusCode) , "StatusMessage" :: NullOrUndefined (XmlString) , "Details" :: NullOrUndefined (XmlString) } ) -> ScalingActivity
-newScalingActivity' _ActivityId _Cause _Description _ResourceId _ScalableDimension _ServiceNamespace _StartTime _StatusCode customize = (ScalingActivity <<< customize) { "ActivityId": _ActivityId, "Cause": _Cause, "Description": _Description, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "StartTime": _StartTime, "StatusCode": _StatusCode, "Details": (NullOrUndefined Nothing), "EndTime": (NullOrUndefined Nothing), "StatusMessage": (NullOrUndefined Nothing) }
+newScalingActivity' :: ResourceId -> XmlString -> XmlString -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> TimestampType -> ScalingActivityStatusCode -> ( { "ActivityId" :: (ResourceId) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "Description" :: (XmlString) , "Cause" :: (XmlString) , "StartTime" :: (TimestampType) , "EndTime" :: Maybe (TimestampType) , "StatusCode" :: (ScalingActivityStatusCode) , "StatusMessage" :: Maybe (XmlString) , "Details" :: Maybe (XmlString) } -> {"ActivityId" :: (ResourceId) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "Description" :: (XmlString) , "Cause" :: (XmlString) , "StartTime" :: (TimestampType) , "EndTime" :: Maybe (TimestampType) , "StatusCode" :: (ScalingActivityStatusCode) , "StatusMessage" :: Maybe (XmlString) , "Details" :: Maybe (XmlString) } ) -> ScalingActivity
+newScalingActivity' _ActivityId _Cause _Description _ResourceId _ScalableDimension _ServiceNamespace _StartTime _StatusCode customize = (ScalingActivity <<< customize) { "ActivityId": _ActivityId, "Cause": _Cause, "Description": _Description, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "StartTime": _StartTime, "StatusCode": _StatusCode, "Details": Nothing, "EndTime": Nothing, "StatusMessage": Nothing }
 
 
 
@@ -987,9 +986,9 @@ newtype ScalingPolicy = ScalingPolicy
   , "ResourceId" :: (ResourceIdMaxLen1600)
   , "ScalableDimension" :: (ScalableDimension)
   , "PolicyType" :: (PolicyType)
-  , "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration)
-  , "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration)
-  , "Alarms" :: NullOrUndefined (Alarms)
+  , "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration)
+  , "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration)
+  , "Alarms" :: Maybe (Alarms)
   , "CreationTime" :: (TimestampType)
   }
 derive instance newtypeScalingPolicy :: Newtype ScalingPolicy _
@@ -1000,12 +999,12 @@ instance encodeScalingPolicy :: Encode ScalingPolicy where encode = genericEncod
 
 -- | Constructs ScalingPolicy from required parameters
 newScalingPolicy :: TimestampType -> ResourceIdMaxLen1600 -> PolicyName -> PolicyType -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ScalingPolicy
-newScalingPolicy _CreationTime _PolicyARN _PolicyName _PolicyType _ResourceId _ScalableDimension _ServiceNamespace = ScalingPolicy { "CreationTime": _CreationTime, "PolicyARN": _PolicyARN, "PolicyName": _PolicyName, "PolicyType": _PolicyType, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "Alarms": (NullOrUndefined Nothing), "StepScalingPolicyConfiguration": (NullOrUndefined Nothing), "TargetTrackingScalingPolicyConfiguration": (NullOrUndefined Nothing) }
+newScalingPolicy _CreationTime _PolicyARN _PolicyName _PolicyType _ResourceId _ScalableDimension _ServiceNamespace = ScalingPolicy { "CreationTime": _CreationTime, "PolicyARN": _PolicyARN, "PolicyName": _PolicyName, "PolicyType": _PolicyType, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "Alarms": Nothing, "StepScalingPolicyConfiguration": Nothing, "TargetTrackingScalingPolicyConfiguration": Nothing }
 
 -- | Constructs ScalingPolicy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScalingPolicy' :: TimestampType -> ResourceIdMaxLen1600 -> PolicyName -> PolicyType -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ( { "PolicyARN" :: (ResourceIdMaxLen1600) , "PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: (PolicyType) , "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) , "Alarms" :: NullOrUndefined (Alarms) , "CreationTime" :: (TimestampType) } -> {"PolicyARN" :: (ResourceIdMaxLen1600) , "PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: (PolicyType) , "StepScalingPolicyConfiguration" :: NullOrUndefined (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: NullOrUndefined (TargetTrackingScalingPolicyConfiguration) , "Alarms" :: NullOrUndefined (Alarms) , "CreationTime" :: (TimestampType) } ) -> ScalingPolicy
-newScalingPolicy' _CreationTime _PolicyARN _PolicyName _PolicyType _ResourceId _ScalableDimension _ServiceNamespace customize = (ScalingPolicy <<< customize) { "CreationTime": _CreationTime, "PolicyARN": _PolicyARN, "PolicyName": _PolicyName, "PolicyType": _PolicyType, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "Alarms": (NullOrUndefined Nothing), "StepScalingPolicyConfiguration": (NullOrUndefined Nothing), "TargetTrackingScalingPolicyConfiguration": (NullOrUndefined Nothing) }
+newScalingPolicy' :: TimestampType -> ResourceIdMaxLen1600 -> PolicyName -> PolicyType -> ResourceIdMaxLen1600 -> ScalableDimension -> ServiceNamespace -> ( { "PolicyARN" :: (ResourceIdMaxLen1600) , "PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: (PolicyType) , "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) , "Alarms" :: Maybe (Alarms) , "CreationTime" :: (TimestampType) } -> {"PolicyARN" :: (ResourceIdMaxLen1600) , "PolicyName" :: (PolicyName) , "ServiceNamespace" :: (ServiceNamespace) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: (ScalableDimension) , "PolicyType" :: (PolicyType) , "StepScalingPolicyConfiguration" :: Maybe (StepScalingPolicyConfiguration) , "TargetTrackingScalingPolicyConfiguration" :: Maybe (TargetTrackingScalingPolicyConfiguration) , "Alarms" :: Maybe (Alarms) , "CreationTime" :: (TimestampType) } ) -> ScalingPolicy
+newScalingPolicy' _CreationTime _PolicyARN _PolicyName _PolicyType _ResourceId _ScalableDimension _ServiceNamespace customize = (ScalingPolicy <<< customize) { "CreationTime": _CreationTime, "PolicyARN": _PolicyARN, "PolicyName": _PolicyName, "PolicyType": _PolicyType, "ResourceId": _ResourceId, "ScalableDimension": _ScalableDimension, "ServiceNamespace": _ServiceNamespace, "Alarms": Nothing, "StepScalingPolicyConfiguration": Nothing, "TargetTrackingScalingPolicyConfiguration": Nothing }
 
 
 
@@ -1016,10 +1015,10 @@ newtype ScheduledAction = ScheduledAction
   , "ServiceNamespace" :: (ServiceNamespace)
   , "Schedule" :: (ResourceIdMaxLen1600)
   , "ResourceId" :: (ResourceIdMaxLen1600)
-  , "ScalableDimension" :: NullOrUndefined (ScalableDimension)
-  , "StartTime" :: NullOrUndefined (TimestampType)
-  , "EndTime" :: NullOrUndefined (TimestampType)
-  , "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction)
+  , "ScalableDimension" :: Maybe (ScalableDimension)
+  , "StartTime" :: Maybe (TimestampType)
+  , "EndTime" :: Maybe (TimestampType)
+  , "ScalableTargetAction" :: Maybe (ScalableTargetAction)
   , "CreationTime" :: (TimestampType)
   }
 derive instance newtypeScheduledAction :: Newtype ScheduledAction _
@@ -1030,12 +1029,12 @@ instance encodeScheduledAction :: Encode ScheduledAction where encode = genericE
 
 -- | Constructs ScheduledAction from required parameters
 newScheduledAction :: TimestampType -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ScheduledAction
-newScheduledAction _CreationTime _ResourceId _Schedule _ScheduledActionARN _ScheduledActionName _ServiceNamespace = ScheduledAction { "CreationTime": _CreationTime, "ResourceId": _ResourceId, "Schedule": _Schedule, "ScheduledActionARN": _ScheduledActionARN, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing), "ScalableTargetAction": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newScheduledAction _CreationTime _ResourceId _Schedule _ScheduledActionARN _ScheduledActionName _ServiceNamespace = ScheduledAction { "CreationTime": _CreationTime, "ResourceId": _ResourceId, "Schedule": _Schedule, "ScheduledActionARN": _ScheduledActionARN, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": Nothing, "ScalableDimension": Nothing, "ScalableTargetAction": Nothing, "StartTime": Nothing }
 
 -- | Constructs ScheduledAction's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newScheduledAction' :: TimestampType -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ( { "ScheduledActionName" :: (ScheduledActionName) , "ScheduledActionARN" :: (ResourceIdMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "StartTime" :: NullOrUndefined (TimestampType) , "EndTime" :: NullOrUndefined (TimestampType) , "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) , "CreationTime" :: (TimestampType) } -> {"ScheduledActionName" :: (ScheduledActionName) , "ScheduledActionARN" :: (ResourceIdMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: NullOrUndefined (ScalableDimension) , "StartTime" :: NullOrUndefined (TimestampType) , "EndTime" :: NullOrUndefined (TimestampType) , "ScalableTargetAction" :: NullOrUndefined (ScalableTargetAction) , "CreationTime" :: (TimestampType) } ) -> ScheduledAction
-newScheduledAction' _CreationTime _ResourceId _Schedule _ScheduledActionARN _ScheduledActionName _ServiceNamespace customize = (ScheduledAction <<< customize) { "CreationTime": _CreationTime, "ResourceId": _ResourceId, "Schedule": _Schedule, "ScheduledActionARN": _ScheduledActionARN, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": (NullOrUndefined Nothing), "ScalableDimension": (NullOrUndefined Nothing), "ScalableTargetAction": (NullOrUndefined Nothing), "StartTime": (NullOrUndefined Nothing) }
+newScheduledAction' :: TimestampType -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ResourceIdMaxLen1600 -> ScheduledActionName -> ServiceNamespace -> ( { "ScheduledActionName" :: (ScheduledActionName) , "ScheduledActionARN" :: (ResourceIdMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "StartTime" :: Maybe (TimestampType) , "EndTime" :: Maybe (TimestampType) , "ScalableTargetAction" :: Maybe (ScalableTargetAction) , "CreationTime" :: (TimestampType) } -> {"ScheduledActionName" :: (ScheduledActionName) , "ScheduledActionARN" :: (ResourceIdMaxLen1600) , "ServiceNamespace" :: (ServiceNamespace) , "Schedule" :: (ResourceIdMaxLen1600) , "ResourceId" :: (ResourceIdMaxLen1600) , "ScalableDimension" :: Maybe (ScalableDimension) , "StartTime" :: Maybe (TimestampType) , "EndTime" :: Maybe (TimestampType) , "ScalableTargetAction" :: Maybe (ScalableTargetAction) , "CreationTime" :: (TimestampType) } ) -> ScheduledAction
+newScheduledAction' _CreationTime _ResourceId _Schedule _ScheduledActionARN _ScheduledActionName _ServiceNamespace customize = (ScheduledAction <<< customize) { "CreationTime": _CreationTime, "ResourceId": _ResourceId, "Schedule": _Schedule, "ScheduledActionARN": _ScheduledActionARN, "ScheduledActionName": _ScheduledActionName, "ServiceNamespace": _ServiceNamespace, "EndTime": Nothing, "ScalableDimension": Nothing, "ScalableTargetAction": Nothing, "StartTime": Nothing }
 
 
 
@@ -1068,8 +1067,8 @@ instance encodeServiceNamespace :: Encode ServiceNamespace where encode = generi
 
 -- | <p>Represents a step adjustment for a <a>StepScalingPolicyConfiguration</a>. Describes an adjustment based on the difference between the value of the aggregated CloudWatch metric and the breach threshold that you've defined for the alarm. </p> <p>For the following examples, suppose that you have an alarm with a breach threshold of 50:</p> <ul> <li> <p>To trigger the adjustment when the metric is greater than or equal to 50 and less than 60, specify a lower bound of 0 and an upper bound of 10.</p> </li> <li> <p>To trigger the adjustment when the metric is greater than 40 and less than or equal to 50, specify a lower bound of -10 and an upper bound of 0.</p> </li> </ul> <p>There are a few rules for the step adjustments for your step policy:</p> <ul> <li> <p>The ranges of your step adjustments can't overlap or have a gap.</p> </li> <li> <p>At most one step adjustment can have a null lower bound. If one step adjustment has a negative lower bound, then there must be a step adjustment with a null lower bound.</p> </li> <li> <p>At most one step adjustment can have a null upper bound. If one step adjustment has a positive upper bound, then there must be a step adjustment with a null upper bound.</p> </li> <li> <p>The upper and lower bound can't be null in the same step adjustment.</p> </li> </ul>
 newtype StepAdjustment = StepAdjustment 
-  { "MetricIntervalLowerBound" :: NullOrUndefined (MetricScale)
-  , "MetricIntervalUpperBound" :: NullOrUndefined (MetricScale)
+  { "MetricIntervalLowerBound" :: Maybe (MetricScale)
+  , "MetricIntervalUpperBound" :: Maybe (MetricScale)
   , "ScalingAdjustment" :: (ScalingAdjustment)
   }
 derive instance newtypeStepAdjustment :: Newtype StepAdjustment _
@@ -1080,12 +1079,12 @@ instance encodeStepAdjustment :: Encode StepAdjustment where encode = genericEnc
 
 -- | Constructs StepAdjustment from required parameters
 newStepAdjustment :: ScalingAdjustment -> StepAdjustment
-newStepAdjustment _ScalingAdjustment = StepAdjustment { "ScalingAdjustment": _ScalingAdjustment, "MetricIntervalLowerBound": (NullOrUndefined Nothing), "MetricIntervalUpperBound": (NullOrUndefined Nothing) }
+newStepAdjustment _ScalingAdjustment = StepAdjustment { "ScalingAdjustment": _ScalingAdjustment, "MetricIntervalLowerBound": Nothing, "MetricIntervalUpperBound": Nothing }
 
 -- | Constructs StepAdjustment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStepAdjustment' :: ScalingAdjustment -> ( { "MetricIntervalLowerBound" :: NullOrUndefined (MetricScale) , "MetricIntervalUpperBound" :: NullOrUndefined (MetricScale) , "ScalingAdjustment" :: (ScalingAdjustment) } -> {"MetricIntervalLowerBound" :: NullOrUndefined (MetricScale) , "MetricIntervalUpperBound" :: NullOrUndefined (MetricScale) , "ScalingAdjustment" :: (ScalingAdjustment) } ) -> StepAdjustment
-newStepAdjustment' _ScalingAdjustment customize = (StepAdjustment <<< customize) { "ScalingAdjustment": _ScalingAdjustment, "MetricIntervalLowerBound": (NullOrUndefined Nothing), "MetricIntervalUpperBound": (NullOrUndefined Nothing) }
+newStepAdjustment' :: ScalingAdjustment -> ( { "MetricIntervalLowerBound" :: Maybe (MetricScale) , "MetricIntervalUpperBound" :: Maybe (MetricScale) , "ScalingAdjustment" :: (ScalingAdjustment) } -> {"MetricIntervalLowerBound" :: Maybe (MetricScale) , "MetricIntervalUpperBound" :: Maybe (MetricScale) , "ScalingAdjustment" :: (ScalingAdjustment) } ) -> StepAdjustment
+newStepAdjustment' _ScalingAdjustment customize = (StepAdjustment <<< customize) { "ScalingAdjustment": _ScalingAdjustment, "MetricIntervalLowerBound": Nothing, "MetricIntervalUpperBound": Nothing }
 
 
 
@@ -1100,11 +1099,11 @@ instance encodeStepAdjustments :: Encode StepAdjustments where encode = genericE
 
 -- | <p>Represents a step scaling policy configuration.</p>
 newtype StepScalingPolicyConfiguration = StepScalingPolicyConfiguration 
-  { "AdjustmentType" :: NullOrUndefined (AdjustmentType)
-  , "StepAdjustments" :: NullOrUndefined (StepAdjustments)
-  , "MinAdjustmentMagnitude" :: NullOrUndefined (MinAdjustmentMagnitude)
-  , "Cooldown" :: NullOrUndefined (Cooldown)
-  , "MetricAggregationType" :: NullOrUndefined (MetricAggregationType)
+  { "AdjustmentType" :: Maybe (AdjustmentType)
+  , "StepAdjustments" :: Maybe (StepAdjustments)
+  , "MinAdjustmentMagnitude" :: Maybe (MinAdjustmentMagnitude)
+  , "Cooldown" :: Maybe (Cooldown)
+  , "MetricAggregationType" :: Maybe (MetricAggregationType)
   }
 derive instance newtypeStepScalingPolicyConfiguration :: Newtype StepScalingPolicyConfiguration _
 derive instance repGenericStepScalingPolicyConfiguration :: Generic StepScalingPolicyConfiguration _
@@ -1114,23 +1113,23 @@ instance encodeStepScalingPolicyConfiguration :: Encode StepScalingPolicyConfigu
 
 -- | Constructs StepScalingPolicyConfiguration from required parameters
 newStepScalingPolicyConfiguration :: StepScalingPolicyConfiguration
-newStepScalingPolicyConfiguration  = StepScalingPolicyConfiguration { "AdjustmentType": (NullOrUndefined Nothing), "Cooldown": (NullOrUndefined Nothing), "MetricAggregationType": (NullOrUndefined Nothing), "MinAdjustmentMagnitude": (NullOrUndefined Nothing), "StepAdjustments": (NullOrUndefined Nothing) }
+newStepScalingPolicyConfiguration  = StepScalingPolicyConfiguration { "AdjustmentType": Nothing, "Cooldown": Nothing, "MetricAggregationType": Nothing, "MinAdjustmentMagnitude": Nothing, "StepAdjustments": Nothing }
 
 -- | Constructs StepScalingPolicyConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStepScalingPolicyConfiguration' :: ( { "AdjustmentType" :: NullOrUndefined (AdjustmentType) , "StepAdjustments" :: NullOrUndefined (StepAdjustments) , "MinAdjustmentMagnitude" :: NullOrUndefined (MinAdjustmentMagnitude) , "Cooldown" :: NullOrUndefined (Cooldown) , "MetricAggregationType" :: NullOrUndefined (MetricAggregationType) } -> {"AdjustmentType" :: NullOrUndefined (AdjustmentType) , "StepAdjustments" :: NullOrUndefined (StepAdjustments) , "MinAdjustmentMagnitude" :: NullOrUndefined (MinAdjustmentMagnitude) , "Cooldown" :: NullOrUndefined (Cooldown) , "MetricAggregationType" :: NullOrUndefined (MetricAggregationType) } ) -> StepScalingPolicyConfiguration
-newStepScalingPolicyConfiguration'  customize = (StepScalingPolicyConfiguration <<< customize) { "AdjustmentType": (NullOrUndefined Nothing), "Cooldown": (NullOrUndefined Nothing), "MetricAggregationType": (NullOrUndefined Nothing), "MinAdjustmentMagnitude": (NullOrUndefined Nothing), "StepAdjustments": (NullOrUndefined Nothing) }
+newStepScalingPolicyConfiguration' :: ( { "AdjustmentType" :: Maybe (AdjustmentType) , "StepAdjustments" :: Maybe (StepAdjustments) , "MinAdjustmentMagnitude" :: Maybe (MinAdjustmentMagnitude) , "Cooldown" :: Maybe (Cooldown) , "MetricAggregationType" :: Maybe (MetricAggregationType) } -> {"AdjustmentType" :: Maybe (AdjustmentType) , "StepAdjustments" :: Maybe (StepAdjustments) , "MinAdjustmentMagnitude" :: Maybe (MinAdjustmentMagnitude) , "Cooldown" :: Maybe (Cooldown) , "MetricAggregationType" :: Maybe (MetricAggregationType) } ) -> StepScalingPolicyConfiguration
+newStepScalingPolicyConfiguration'  customize = (StepScalingPolicyConfiguration <<< customize) { "AdjustmentType": Nothing, "Cooldown": Nothing, "MetricAggregationType": Nothing, "MinAdjustmentMagnitude": Nothing, "StepAdjustments": Nothing }
 
 
 
 -- | <p>Represents a target tracking scaling policy configuration.</p>
 newtype TargetTrackingScalingPolicyConfiguration = TargetTrackingScalingPolicyConfiguration 
   { "TargetValue" :: (MetricScale)
-  , "PredefinedMetricSpecification" :: NullOrUndefined (PredefinedMetricSpecification)
-  , "CustomizedMetricSpecification" :: NullOrUndefined (CustomizedMetricSpecification)
-  , "ScaleOutCooldown" :: NullOrUndefined (Cooldown)
-  , "ScaleInCooldown" :: NullOrUndefined (Cooldown)
-  , "DisableScaleIn" :: NullOrUndefined (DisableScaleIn)
+  , "PredefinedMetricSpecification" :: Maybe (PredefinedMetricSpecification)
+  , "CustomizedMetricSpecification" :: Maybe (CustomizedMetricSpecification)
+  , "ScaleOutCooldown" :: Maybe (Cooldown)
+  , "ScaleInCooldown" :: Maybe (Cooldown)
+  , "DisableScaleIn" :: Maybe (DisableScaleIn)
   }
 derive instance newtypeTargetTrackingScalingPolicyConfiguration :: Newtype TargetTrackingScalingPolicyConfiguration _
 derive instance repGenericTargetTrackingScalingPolicyConfiguration :: Generic TargetTrackingScalingPolicyConfiguration _
@@ -1140,12 +1139,12 @@ instance encodeTargetTrackingScalingPolicyConfiguration :: Encode TargetTracking
 
 -- | Constructs TargetTrackingScalingPolicyConfiguration from required parameters
 newTargetTrackingScalingPolicyConfiguration :: MetricScale -> TargetTrackingScalingPolicyConfiguration
-newTargetTrackingScalingPolicyConfiguration _TargetValue = TargetTrackingScalingPolicyConfiguration { "TargetValue": _TargetValue, "CustomizedMetricSpecification": (NullOrUndefined Nothing), "DisableScaleIn": (NullOrUndefined Nothing), "PredefinedMetricSpecification": (NullOrUndefined Nothing), "ScaleInCooldown": (NullOrUndefined Nothing), "ScaleOutCooldown": (NullOrUndefined Nothing) }
+newTargetTrackingScalingPolicyConfiguration _TargetValue = TargetTrackingScalingPolicyConfiguration { "TargetValue": _TargetValue, "CustomizedMetricSpecification": Nothing, "DisableScaleIn": Nothing, "PredefinedMetricSpecification": Nothing, "ScaleInCooldown": Nothing, "ScaleOutCooldown": Nothing }
 
 -- | Constructs TargetTrackingScalingPolicyConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTargetTrackingScalingPolicyConfiguration' :: MetricScale -> ( { "TargetValue" :: (MetricScale) , "PredefinedMetricSpecification" :: NullOrUndefined (PredefinedMetricSpecification) , "CustomizedMetricSpecification" :: NullOrUndefined (CustomizedMetricSpecification) , "ScaleOutCooldown" :: NullOrUndefined (Cooldown) , "ScaleInCooldown" :: NullOrUndefined (Cooldown) , "DisableScaleIn" :: NullOrUndefined (DisableScaleIn) } -> {"TargetValue" :: (MetricScale) , "PredefinedMetricSpecification" :: NullOrUndefined (PredefinedMetricSpecification) , "CustomizedMetricSpecification" :: NullOrUndefined (CustomizedMetricSpecification) , "ScaleOutCooldown" :: NullOrUndefined (Cooldown) , "ScaleInCooldown" :: NullOrUndefined (Cooldown) , "DisableScaleIn" :: NullOrUndefined (DisableScaleIn) } ) -> TargetTrackingScalingPolicyConfiguration
-newTargetTrackingScalingPolicyConfiguration' _TargetValue customize = (TargetTrackingScalingPolicyConfiguration <<< customize) { "TargetValue": _TargetValue, "CustomizedMetricSpecification": (NullOrUndefined Nothing), "DisableScaleIn": (NullOrUndefined Nothing), "PredefinedMetricSpecification": (NullOrUndefined Nothing), "ScaleInCooldown": (NullOrUndefined Nothing), "ScaleOutCooldown": (NullOrUndefined Nothing) }
+newTargetTrackingScalingPolicyConfiguration' :: MetricScale -> ( { "TargetValue" :: (MetricScale) , "PredefinedMetricSpecification" :: Maybe (PredefinedMetricSpecification) , "CustomizedMetricSpecification" :: Maybe (CustomizedMetricSpecification) , "ScaleOutCooldown" :: Maybe (Cooldown) , "ScaleInCooldown" :: Maybe (Cooldown) , "DisableScaleIn" :: Maybe (DisableScaleIn) } -> {"TargetValue" :: (MetricScale) , "PredefinedMetricSpecification" :: Maybe (PredefinedMetricSpecification) , "CustomizedMetricSpecification" :: Maybe (CustomizedMetricSpecification) , "ScaleOutCooldown" :: Maybe (Cooldown) , "ScaleInCooldown" :: Maybe (Cooldown) , "DisableScaleIn" :: Maybe (DisableScaleIn) } ) -> TargetTrackingScalingPolicyConfiguration
+newTargetTrackingScalingPolicyConfiguration' _TargetValue customize = (TargetTrackingScalingPolicyConfiguration <<< customize) { "TargetValue": _TargetValue, "CustomizedMetricSpecification": Nothing, "DisableScaleIn": Nothing, "PredefinedMetricSpecification": Nothing, "ScaleInCooldown": Nothing, "ScaleOutCooldown": Nothing }
 
 
 
@@ -1160,7 +1159,7 @@ instance encodeTimestampType :: Encode TimestampType where encode = genericEncod
 
 -- | <p>An exception was thrown for a validation issue. Review the available parameters for the API request.</p>
 newtype ValidationException = ValidationException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeValidationException :: Newtype ValidationException _
 derive instance repGenericValidationException :: Generic ValidationException _
@@ -1170,12 +1169,12 @@ instance encodeValidationException :: Encode ValidationException where encode = 
 
 -- | Constructs ValidationException from required parameters
 newValidationException :: ValidationException
-newValidationException  = ValidationException { "Message": (NullOrUndefined Nothing) }
+newValidationException  = ValidationException { "Message": Nothing }
 
 -- | Constructs ValidationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidationException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ValidationException
-newValidationException'  customize = (ValidationException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newValidationException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ValidationException
+newValidationException'  customize = (ValidationException <<< customize) { "Message": Nothing }
 
 
 
